@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="theme-color" content="#0d2818"/>
 <title>Carnalea Nomads Golf Society</title>
@@ -16,12 +16,12 @@
   --cream:#f9f4e8;--w:#fff;--red:#e74c3c;--grn:#2ecc71;
   --nav:54px;--bot:62px;
 }
-html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
-body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--gd);color:var(--cream);overflow-x:hidden;min-height:100vh;padding-bottom:var(--bot)}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--gd);color:var(--cream);overflow-x:hidden;min-height:100vh;padding-bottom:calc(var(--bot) + env(safe-area-inset-bottom,0px))}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--gd)}::-webkit-scrollbar-thumb{background:var(--gold)}
-
+ 
 /* NAV */
-.tnav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:var(--nav);background:rgba(4,10,6,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.18)}
+.tnav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0 1.2rem;height:var(--nav);background:rgba(4,10,6,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.18)}
 .tnav-logo{font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;cursor:pointer;white-space:nowrap}
 .tnav-links{display:flex;gap:1.1rem;list-style:none;align-items:center}
 .tnav-links a{font-family:'Cinzel',serif;font-size:.54rem;letter-spacing:.14em;color:var(--goldp);text-decoration:none;text-transform:uppercase;opacity:.7;transition:opacity .2s,color .2s;cursor:pointer;white-space:nowrap}
@@ -29,28 +29,51 @@ body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--gd);color:v
 .nav-btn{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;padding:.38rem .9rem;border:1px solid var(--gold);color:var(--gold);background:transparent;cursor:pointer;transition:all .2s}
 .nav-btn:hover{background:var(--gold);color:var(--gd)}
 .nav-user-txt{font-family:'Cinzel',serif;font-size:.54rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}
-
+.nav-auth-desktop{display:flex;align-items:center}
+.mob-nav-icons{display:none;align-items:center;gap:.3rem;flex-shrink:0}
+.mob-icon-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;background:transparent;border:none;color:var(--gold);font-size:1.3rem;cursor:pointer;padding:.5rem;line-height:1;-webkit-tap-highlight-color:transparent;min-width:40px;min-height:40px}
+.mob-hamburger{gap:5px;font-size:0}
+.mob-hamburger span{display:block;width:22px;height:2px;background:var(--gold);border-radius:1px}
+.drawer-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:500}
+.drawer-overlay.open{display:block}
+.drawer{position:fixed;top:0;right:-290px;width:280px;height:100%;background:#040e08;z-index:501;transition:right .32s cubic-bezier(.4,0,.2,1);border-left:1px solid rgba(201,168,76,.2);display:flex;flex-direction:column}
+.drawer.open{right:0}
+.drawer-header{display:flex;align-items:center;justify-content:space-between;padding:0 1.2rem;height:var(--nav);border-bottom:1px solid rgba(201,168,76,.15);flex-shrink:0}
+.drawer-logo{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.drawer-close{background:transparent;border:none;color:rgba(249,244,232,.45);font-size:1.5rem;cursor:pointer;padding:.2rem;line-height:1;transition:color .2s}
+.drawer-close:hover{color:var(--gold)}
+.drawer-nav{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:.4rem 0}
+.drawer-item{display:flex;align-items:center;gap:.9rem;padding:.95rem 1.3rem;cursor:pointer;border-bottom:1px solid rgba(201,168,76,.06);transition:background .2s;-webkit-tap-highlight-color:transparent}
+.drawer-item:last-child{border-bottom:none}
+.drawer-item:hover,.drawer-item:active{background:rgba(201,168,76,.08)}
+.drawer-icon{font-size:1.2rem;width:1.5rem;text-align:center;flex-shrink:0}
+.drawer-lbl{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--goldp);text-transform:uppercase}
+.drawer-footer{padding:1rem 1.2rem;border-top:1px solid rgba(201,168,76,.15);flex-shrink:0}
+.drawer-auth-btn{width:100%;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:.78rem;border:1px solid var(--gold);color:var(--gold);background:transparent;cursor:pointer;transition:all .2s}
+.drawer-auth-btn:hover{background:var(--gold);color:var(--gd)}
+.drawer-user{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--goldp);font-style:italic;margin-bottom:.55rem;text-align:center}
+ 
 /* BOTTOM NAV */
-.bnav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;height:var(--bot);background:rgba(4,10,6,.98);border-top:1px solid rgba(201,168,76,.18)}
-.bnav-inner{display:flex;height:100%;align-items:stretch}
-.bni{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;border:none;background:transparent;padding:.3rem .15rem;transition:all .2s;min-width:0;border-top:2px solid transparent}
-.bni.act{border-top-color:var(--gold)}
-.bni-icon{font-size:1.2rem;line-height:1}
-.bni-lbl{font-family:'Cinzel',serif;font-size:.4rem;letter-spacing:.07em;color:rgba(249,244,232,.4);text-transform:uppercase;transition:color .2s;white-space:nowrap}
-.bni.act .bni-lbl,.bni:hover .bni-lbl{color:var(--gold)}
-.more-menu{display:none;position:fixed;bottom:calc(var(--bot) + .4rem);left:.5rem;right:.5rem;background:rgba(5,14,7,.98);border:1px solid rgba(201,168,76,.2);z-index:299;padding:.35rem;max-height:80vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.bnav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;height:calc(var(--bot) + env(safe-area-inset-bottom,0px));background:rgba(4,10,6,.99);border-top:1px solid rgba(201,168,76,.2);-webkit-backdrop-filter:blur(10px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.bnav-inner{display:flex;height:100%;align-items:stretch;padding:0}
+.bni{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;border:none;background:transparent;padding:.4rem .1rem;transition:all .2s;min-width:0;border-top:2px solid transparent;-webkit-tap-highlight-color:transparent}
+.bni.act{border-top-color:var(--gold);background:rgba(201,168,76,.06)}
+.bni-icon{font-size:1.35rem;line-height:1;display:block}
+.bni-lbl{font-family:'Cinzel',serif;font-size:.42rem;letter-spacing:.06em;color:rgba(249,244,232,.38);text-transform:uppercase;transition:color .2s;white-space:nowrap;display:block}
+.bni.act .bni-lbl{color:var(--gold)}
+.more-menu{display:none;position:fixed;bottom:calc(var(--bot) + env(safe-area-inset-bottom,0px) + .5rem);right:.5rem;left:auto;width:240px;background:rgba(5,14,7,.99);border:1px solid rgba(201,168,76,.25);z-index:400;border-radius:2px;overflow:hidden;box-shadow:0 -4px 30px rgba(0,0,0,.5)}
 .more-menu.open{display:block}
 .mmi{display:flex;align-items:center;gap:.7rem;padding:.9rem 1rem;cursor:pointer;border-bottom:1px solid rgba(201,168,76,.08);transition:background .2s;min-height:52px}
 .mmi:last-child{border-bottom:none;border-top:1px solid rgba(201,168,76,.15);background:rgba(201,168,76,.04)}
 .mmi:hover{background:rgba(201,168,76,.08)}
 .mmi-icon{font-size:1.2rem;width:1.5rem;text-align:center;flex-shrink:0}
 .mmi-lbl{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.14em;color:var(--goldp);text-transform:uppercase}
-
+ 
 /* PAGES */
-.page{display:none;min-height:calc(100vh - var(--nav));padding-top:var(--nav)}
+.page{display:none;min-height:calc(100vh - var(--nav));padding-top:var(--nav);overflow-x:hidden;overflow-y:hidden}.page.active{overflow-y:auto}
 .page.active{display:block}
 #pg-home{padding-top:0}
-
+ 
 /* HERO */
 .hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:4rem 1.5rem 5rem;text-align:center}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(45,110,71,.4) 0%,transparent 70%),linear-gradient(180deg,var(--gd) 0%,#112a1c 50%,#0a2010 100%);z-index:0}
@@ -72,7 +95,7 @@ body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--gd);color:v
 .sa{width:13px;height:13px;border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);transform:rotate(45deg);animation:bo 2s infinite}
 @keyframes bo{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
 @keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-
+ 
 /* LAYOUT */
 .sec{padding:clamp(2.5rem,5vw,5rem) clamp(1rem,4vw,2rem)}
 .con{max-width:1100px;margin:0 auto}
@@ -81,13 +104,13 @@ body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--gd);color:v
 .st{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.5rem);color:var(--w);font-weight:700}
 .sr{width:58px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto 0}
 .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.18),transparent);margin:.6rem 0}
-
+ 
 /* CARDS */
 .card{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.15);padding:1.4rem;margin-bottom:1.1rem}
 .ct{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.85rem;padding-bottom:.52rem;border-bottom:1px solid rgba(201,168,76,.1)}
 .draw-step{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.14);padding:1.4rem;margin-bottom:1.1rem}
 .draw-step-title{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;padding-bottom:.52rem;border-bottom:1px solid rgba(201,168,76,.09)}
-
+ 
 /* TABLES */
 .tw{overflow-x:auto;border:1px solid rgba(201,168,76,.15);-webkit-overflow-scrolling:touch}
 table{width:100%;border-collapse:collapse;min-width:340px}
@@ -100,14 +123,14 @@ tbody td{padding:.7rem .85rem;font-family:'Cormorant Garamond',serif;font-size:.
 tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child(3) .pc{color:#CD7F32}
 .nc{font-size:.93rem;font-weight:600;color:var(--w)}
 .ptc{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gold)}
-
+ 
 /* BADGES */
 .bdg{display:inline-block;font-family:'Cinzel',serif;font-size:.46rem;letter-spacing:.09em;padding:.13rem .4rem;border:1px solid rgba(201,168,76,.3);color:var(--gold);background:rgba(201,168,76,.06)}
 .bdg-r{border-color:rgba(231,76,60,.35);color:var(--red);background:rgba(231,76,60,.06)}
 .bdg-g{border-color:rgba(46,204,113,.35);color:var(--grn);background:rgba(46,204,113,.06)}
 .bdg-o{border-color:rgba(255,165,0,.35);color:orange;background:rgba(255,165,0,.06)}
 .bdg-b{border-color:rgba(52,152,219,.35);color:#3498db;background:rgba(52,152,219,.06)}
-
+ 
 /* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;letter-spacing:.17em;text-transform:uppercase;border:none;cursor:pointer;transition:all .22s;white-space:nowrap}
 .btn-p{background:var(--gold);color:var(--gd);font-size:.6rem;padding:.82rem 2rem}
@@ -123,7 +146,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .btn-g:hover{background:rgba(46,204,113,.08)}
 .btn-fw{width:100%}
 .btn-lg{font-size:.68rem;padding:.95rem 2.5rem}
-
+ 
 /* FORMS */
 .fg{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.78rem}
 .fl{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.17em;color:var(--gold);text-transform:uppercase}
@@ -136,13 +159,13 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .fe.show{display:block}
 .fs-msg{font-family:'Cormorant Garamond',serif;font-size:.88rem;color:var(--grn);text-align:center;padding:.38rem;background:rgba(46,204,113,.07);border:1px solid rgba(46,204,113,.18);display:none;margin-top:.4rem}
 .fs-msg.show{display:block}
-
+ 
 /* LB TABS */
 .lbt{display:flex;border:1px solid rgba(201,168,76,.18);margin-bottom:1.3rem;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .lbt-i{flex:1;font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:.09em;text-transform:uppercase;padding:.66rem .35rem;text-align:center;cursor:pointer;color:rgba(249,244,232,.42);border:none;background:transparent;transition:all .2s;white-space:nowrap;min-width:70px}
 .lbt-i.act{background:rgba(201,168,76,.11);color:var(--gold)}
 .lbp{display:none}.lbp.act{display:block}
-
+ 
 /* HOME SECTIONS */
 .agrid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
 .at p{font-size:1.05rem;line-height:1.9;color:var(--goldp);margin-bottom:.85rem;font-weight:300}
@@ -173,7 +196,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .hi{font-size:1.5rem;margin-bottom:.55rem}
 .hr2{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.23em;color:var(--gold);text-transform:uppercase;margin-bottom:.32rem}
 .hn{font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;color:var(--w)}
-
+ 
 /* MEMBERS */
 .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:1.1rem}
 .mcard{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.13);padding:1.3rem .85rem;text-align:center;transition:all .3s}
@@ -186,7 +209,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .msub{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:.09em;margin-top:.2rem;text-transform:uppercase}
 .att-bar-w{margin-top:.42rem;background:rgba(255,255,255,.06);height:4px;border-radius:2px;overflow:hidden}
 .att-bar{height:100%;background:var(--gold);border-radius:2px}
-
+ 
 /* DRAW */
 .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:.5rem}
 .pchip{display:flex;align-items:center;gap:.45rem;padding:.5rem .7rem;border:1px solid rgba(201,168,76,.1);cursor:pointer;transition:all .2s;user-select:none;-webkit-user-select:none}
@@ -210,7 +233,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .spd-l{font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:.22rem}
 .spd-v{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--w)}
 .spd-s{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,244,232,.42);margin-top:.13rem}
-
+ 
 /* WEEKLY MONEY + POSITIONS */
 .pos-card{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.14);padding:1.3rem;margin-bottom:.9rem}
 .pos-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid rgba(201,168,76,.09)}
@@ -227,7 +250,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .pot-info{background:rgba(46,204,113,.06);border:1px solid rgba(46,204,113,.2);padding:.9rem 1.1rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
 .pot-label{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.15em;color:rgba(249,244,232,.55);text-transform:uppercase}
 .pot-val{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--grn)}
-
+ 
 /* ATTENDANCE */
 .att-sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:.9rem;margin-bottom:1.7rem}
 .att-s{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.14);padding:1.2rem;text-align:center}
@@ -241,7 +264,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .att-b{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--goldl))}
 .att-pct{font-family:'Playfair Display',serif;font-size:.93rem;font-weight:700;color:var(--gold);width:2.8rem;text-align:right;flex-shrink:0}
 .att-det{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:.09em;color:rgba(249,244,232,.38);text-transform:uppercase;width:3.5rem;text-align:right;flex-shrink:0}
-
+ 
 /* SCORECARD */
 .scow{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .scg{display:grid;gap:.2rem;min-width:430px}
@@ -257,7 +280,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .sf-row:last-child .sf-v{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700}
 .sf-l{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.12em;color:rgba(249,244,232,.46);text-transform:uppercase}
 .sf-v{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--cream)}
-
+ 
 /* FINES */
 .shame{background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.2);border-top:3px solid var(--red);padding:1.4rem;margin-bottom:1.4rem;text-align:center}
 .shame-t{font-family:'Cinzel',serif;font-size:.54rem;letter-spacing:.26em;color:var(--red);text-transform:uppercase;margin-bottom:.35rem}
@@ -270,7 +293,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .fine-d{font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.09em;color:rgba(249,244,232,.35);text-transform:uppercase;margin-top:.12rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .fine-right{display:flex;align-items:center;gap:.55rem;flex-shrink:0}
 .fine-a{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--red)}
-
+ 
 /* PHOTOS */
 .pgall{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:.7rem}
 .pitem{position:relative;aspect-ratio:1;overflow:hidden;cursor:pointer;background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.11)}
@@ -289,7 +312,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .lbox img{max-width:100%;max-height:80vh;object-fit:contain}
 .lbox-cap{font-family:'Cormorant Garamond',serif;font-size:.93rem;color:rgba(249,244,232,.65);margin-top:.7rem;font-style:italic;text-align:center}
 .lbox-x{position:absolute;top:1rem;right:1rem;background:transparent;border:none;color:rgba(249,244,232,.55);font-size:1.4rem;cursor:pointer;padding:.35rem}
-
+ 
 /* RESULTS */
 .rw{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.13);margin-bottom:.85rem;overflow:hidden}
 .rwh{display:flex;justify-content:space-between;align-items:center;padding:.92rem 1.1rem;cursor:pointer;transition:background .2s}
@@ -307,14 +330,14 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .rpn{font-family:'Cormorant Garamond',serif;font-size:.93rem;color:var(--w);font-weight:600}
 .rpp{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--gold)}
 .rpd{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:.07em;color:rgba(249,244,232,.42);text-transform:uppercase}
-
+ 
 /* NOTICE */
 .ni{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.13);border-left:3px solid var(--gold);padding:1.2rem;margin-bottom:.82rem}
 .ni-d{font-family:'Cinzel',serif;font-size:.47rem;letter-spacing:.17em;color:var(--gold);text-transform:uppercase;margin-bottom:.26rem}
 .ni-t{font-family:'Playfair Display',serif;font-size:1.03rem;color:var(--w);margin-bottom:.26rem}
 .ni-b{font-family:'Cormorant Garamond',serif;font-size:.92rem;color:var(--goldp);line-height:1.7}
 .ni-a{font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.11em;color:rgba(249,244,232,.32);margin-top:.42rem;text-transform:uppercase}
-
+ 
 /* MODAL */
 .mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:500;align-items:center;justify-content:center;backdrop-filter:blur(4px);padding:1rem}
 .mo.open{display:flex}
@@ -327,39 +350,40 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .mtab.act{background:rgba(201,168,76,.11);color:var(--gold)}
 .mx{position:absolute;top:.7rem;right:.7rem;background:transparent;border:none;color:rgba(249,244,232,.32);cursor:pointer;font-size:1.05rem;padding:.28rem;transition:color .2s}
 .mx:hover{color:var(--gold)}
-
+ 
 /* ADMIN */
 .agrd{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:1.2rem;margin-bottom:1.2rem}
 .aa{display:flex;align-items:center;justify-content:space-between;padding:.56rem 0;border-bottom:1px solid rgba(255,255,255,.03);gap:.4rem}
 .aa:last-child{border-bottom:none}
 .aa-l{font-family:'Cormorant Garamond',serif;font-size:.93rem;color:var(--goldp);flex:1}
-
+ 
 /* PROTECTED */
 .prot{text-align:center;padding:clamp(2rem,5vw,4rem) 1.4rem}
 .prot h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--w);margin-bottom:.72rem}
 .prot p{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--goldp);margin-bottom:1.5rem;font-style:italic}
-
+ 
 /* TOAST */
-.toast{position:fixed;bottom:calc(var(--bot) + .8rem);right:.85rem;left:.85rem;max-width:330px;margin:0 auto;background:#0f2d1c;border:1px solid rgba(201,168,76,.26);border-left:3px solid var(--gold);padding:.8rem 1.1rem;font-family:'Cormorant Garamond',serif;font-size:.92rem;color:var(--cream);z-index:400;transform:translateY(200%);transition:transform .35s}
+.toast{position:fixed;bottom:1.5rem;right:.85rem;left:.85rem;max-width:330px;margin:0 auto;background:#0f2d1c;border:1px solid rgba(201,168,76,.26);border-left:3px solid var(--gold);padding:.8rem 1.1rem;font-family:'Cormorant Garamond',serif;font-size:.92rem;color:var(--cream);z-index:400;transform:translateY(200%);transition:transform .35s}
 .toast.show{transform:translateY(0)}
 .toast.err{border-left-color:var(--red)}
-
+ 
 /* FOOTER */
 footer{background:#040a06;border-top:1px solid rgba(201,168,76,.09);padding:1.5rem;text-align:center}
 .fl2{font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.26em;color:var(--gold);text-transform:uppercase;margin-bottom:.3rem}
 footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,244,232,.2)}
-
+ 
 /* REVEAL */
 .rev{opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}
 .rev.vis{opacity:1;transform:none}
-
+ 
 /* RESPONSIVE */
 @media(max-width:768px){
-  :root{--nav:50px;--bot:60px}
-  .tnav{padding:0 .9rem}
+  :root{--nav:52px}
+  .tnav{padding:0 1rem}
   .tnav-links{display:none}
-  .bnav{display:flex}
-  body{padding-bottom:var(--bot)}
+  .mob-nav-icons{display:flex !important}
+  .nav-auth-desktop{display:none}
+  body{padding-bottom:0}
   .page{padding-top:var(--nav)}
   #pg-home{padding-top:0}
   .agrid,.away-grid,.fr,.spgrid{grid-template-columns:1fr;gap:1.5rem}
@@ -377,10 +401,29 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
   .att-pct{width:2.6rem}
   .rpgrid{grid-template-columns:1fr 1fr}
 }
+ 
+/* Search overlay */
+.search-overlay{display:none;position:fixed;inset:0;background:rgba(4,10,6,.97);z-index:600;align-items:flex-start;justify-content:center;padding-top:calc(var(--nav) + 1.5rem);padding-left:1rem;padding-right:1rem}
+.search-overlay.open{display:flex;flex-direction:column}
+.search-box{display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.35);padding:.8rem 1rem;width:100%;max-width:600px}
+.search-box input{flex:1;background:transparent;border:none;color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:1.1rem;outline:none}
+.search-box input::placeholder{color:rgba(249,244,232,.35)}
+.search-icon-btn{background:transparent;border:none;color:var(--gold);font-size:1.2rem;cursor:pointer;padding:.2rem;line-height:1}
+.search-close{background:transparent;border:none;color:rgba(249,244,232,.45);font-size:1.3rem;cursor:pointer;padding:.2rem;transition:color .2s}
+.search-close:hover{color:var(--gold)}
+.search-results{width:100%;max-width:600px;margin-top:.8rem}
+.search-result-item{display:flex;align-items:center;gap:.8rem;padding:.85rem 1rem;border-bottom:1px solid rgba(201,168,76,.08);cursor:pointer;transition:background .2s}
+.search-result-item:hover{background:rgba(201,168,76,.07)}
+.search-result-icon{font-size:1.1rem;flex-shrink:0}
+.search-result-name{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--white)}
+.search-result-sub{font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-top:.1rem}
+.search-result-empty{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:rgba(249,244,232,.4);font-style:italic;padding:1rem;text-align:center}
+* { -webkit-touch-callout: none; }
+input[type=search]::-webkit-search-decoration { display:none; }
 </style>
 </head>
 <body>
-
+ 
 <!-- TOP NAV -->
 <nav class="tnav">
   <div class="tnav-logo" onclick="go('home')">Carnalea Nomads</div>
@@ -396,33 +439,44 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
     <li><a onclick="go('photos')" id="dn-photos">Photos</a></li>
     <li><a onclick="go('notice')" id="dn-notice">Notices</a></li>
     <li><a onclick="go('admin')" id="dn-admin">Admin</a></li>
-    <span id="nav-auth"><button class="nav-btn" onclick="openModal()">🔐 Edit Mode</button></span>
   </ul>
-</nav>
-
-<!-- BOTTOM NAV (mobile) -->
-<nav class="bnav">
-  <div class="bnav-inner">
-    <button class="bni act" id="bn-home" onclick="go('home')"><span class="bni-icon">🏠</span><span class="bni-lbl">Home</span></button>
-    <button class="bni" id="bn-draw" onclick="go('draw')"><span class="bni-icon">🎲</span><span class="bni-lbl">Draw</span></button>
-    <button class="bni" id="bn-scores" onclick="go('scores')"><span class="bni-icon">⛳</span><span class="bni-lbl">Scores</span></button>
-    <button class="bni" id="bn-weekly" onclick="go('weekly')"><span class="bni-icon">💰</span><span class="bni-lbl">Weekly</span></button>
-    <button class="bni" id="bn-more" onclick="toggleMore()"><span class="bni-icon">☰</span><span class="bni-lbl">More</span></button>
+  <!-- Desktop login button -->
+  <span id="nav-auth" class="nav-auth-desktop"><button class="nav-btn" onclick="openModal()">🔐 Edit Mode</button></span>
+  <!-- Mobile: search icon + hamburger — always visible on mobile -->
+  <div class="mob-nav-icons">
+    <button class="mob-icon-btn" onclick="openSearch()" aria-label="Search">🔍</button>
+    <button class="mob-icon-btn mob-hamburger" onclick="openDrawer()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
-
-<!-- MORE MENU -->
-<div class="more-menu" id="more-menu">
-  <div class="mmi" onclick="go('members');closeMore()"><span class="mmi-icon">👥</span><span class="mmi-lbl">Members</span></div>
-  <div class="mmi" onclick="go('attendance');closeMore()"><span class="mmi-icon">📅</span><span class="mmi-lbl">Attendance</span></div>
-  <div class="mmi" onclick="go('results');closeMore()"><span class="mmi-icon">📊</span><span class="mmi-lbl">Results Archive</span></div>
-  <div class="mmi" onclick="go('fines');closeMore()"><span class="mmi-icon">💸</span><span class="mmi-lbl">Fines</span></div>
-  <div class="mmi" onclick="go('photos');closeMore()"><span class="mmi-icon">📸</span><span class="mmi-lbl">Photos</span></div>
-  <div class="mmi" onclick="go('notice');closeMore()"><span class="mmi-icon">📋</span><span class="mmi-lbl">Notice Board</span></div>
-  <div class="mmi" onclick="go('admin');closeMore()"><span class="mmi-icon">⚙️</span><span class="mmi-lbl">Admin</span></div>
-  <div class="mmi" id="more-menu-auth" onclick="moreMenuAuth();closeMore()"><span class="mmi-icon">🔐</span><span class="mmi-lbl" id="more-menu-auth-lbl">Edit Mode</span></div>
+ 
+<!-- SIDE DRAWER (mobile) -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <div class="drawer-logo">Carnalea Nomads</div>
+    <button class="drawer-close" onclick="closeDrawer()">✕</button>
+  </div>
+  <div class="drawer-nav">
+    <div class="drawer-item" onclick="go('home');closeDrawer()"><span class="drawer-icon">🏠</span><span class="drawer-lbl">Home</span></div>
+    <div class="drawer-item" onclick="go('draw');closeDrawer()"><span class="drawer-icon">🎲</span><span class="drawer-lbl">Sunday Draw</span></div>
+    <div class="drawer-item" onclick="go('scores');closeDrawer()"><span class="drawer-icon">⛳</span><span class="drawer-lbl">Enter Scores</span></div>
+    <div class="drawer-item" onclick="go('weekly');closeDrawer()"><span class="drawer-icon">💰</span><span class="drawer-lbl">Weekly Results</span></div>
+    <div class="drawer-item" onclick="go('results');closeDrawer()"><span class="drawer-icon">📊</span><span class="drawer-lbl">Results Archive</span></div>
+    <div class="drawer-item" onclick="go('members');closeDrawer()"><span class="drawer-icon">👥</span><span class="drawer-lbl">Members</span></div>
+    <div class="drawer-item" onclick="go('attendance');closeDrawer()"><span class="drawer-icon">📅</span><span class="drawer-lbl">Attendance</span></div>
+    <div class="drawer-item" onclick="go('fines');closeDrawer()"><span class="drawer-icon">💸</span><span class="drawer-lbl">Fines</span></div>
+    <div class="drawer-item" onclick="go('photos');closeDrawer()"><span class="drawer-icon">📸</span><span class="drawer-lbl">Photos</span></div>
+    <div class="drawer-item" onclick="go('notice');closeDrawer()"><span class="drawer-icon">📋</span><span class="drawer-lbl">Notice Board</span></div>
+    <div class="drawer-item" onclick="go('admin');closeDrawer()"><span class="drawer-icon">⚙️</span><span class="drawer-lbl">Admin</span></div>
+  </div>
+  <div class="drawer-footer" id="drawer-footer">
+    <button class="drawer-auth-btn" onclick="drawerAuth();closeDrawer()">🔐 Edit Mode</button>
+  </div>
 </div>
-
+ 
+ 
 <!-- ═══════════ HOME ═══════════ -->
 <div id="pg-home" class="page active">
   <div class="hero">
@@ -441,7 +495,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
     </div>
     <div class="scroll-hint"><span>Discover</span><div class="sa"></div></div>
   </div>
-
+ 
   <!-- This Sunday -->
   <div class="sec" style="background:#0a2010;padding:2.2rem clamp(.9rem,4vw,2rem)">
     <div class="con">
@@ -453,7 +507,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
       <div id="home-sun"><div class="empty">Loading…</div></div>
     </div>
   </div>
-
+ 
   <!-- About -->
   <div class="sec" style="background:#0f2d1c">
     <div class="con">
@@ -471,7 +525,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
       </div>
     </div>
   </div>
-
+ 
   <!-- How it works -->
   <div class="sec" style="background:#091f12">
     <div class="con">
@@ -510,7 +564,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
       </div>
     </div>
   </div>
-
+ 
   <!-- Leaderboards -->
   <div class="sec" style="background:var(--gd)">
     <div class="con">
@@ -529,7 +583,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
       <div id="lb-fines" class="lbp"><div id="fin-lb" class="empty">Loading…</div></div>
     </div>
   </div>
-
+ 
   <!-- Away Days -->
   <div class="sec" style="background:#0b2416">
     <div class="con">
@@ -540,7 +594,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
       </div>
     </div>
   </div>
-
+ 
   <!-- Honours -->
   <div class="sec" style="background:var(--gd)">
     <div class="con">
@@ -558,13 +612,13 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
       </div>
     </div>
   </div>
-
+ 
   <footer>
     <div class="fl2">Carnalea Nomads Golf Society</div>
     <p>Carnalea Golf Club · Bangor, Co. Down · Northern Ireland · © 2025</p>
   </footer>
 </div>
-
+ 
 <!-- ═══════════ DRAW ═══════════ -->
 <div id="pg-draw" class="page">
   <div class="sec"><div class="con" style="max-width:860px">
@@ -572,7 +626,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
     <div id="draw-con"><div class="empty">Loading…</div></div>
   </div></div>
 </div>
-
+ 
 <!-- ═══════════ MEMBERS ═══════════ -->
 <div id="pg-members" class="page">
   <div class="sec"><div class="con">
@@ -580,7 +634,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
     <div id="mem-grid" class="mgrid"><div class="empty">Loading…</div></div>
   </div></div>
 </div>
-
+ 
 <!-- ═══════════ ATTENDANCE ═══════════ -->
 <div id="pg-attendance" class="page">
   <div class="sec"><div class="con">
@@ -590,7 +644,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
     <div class="card"><div class="ct">Sunday by Sunday</div><div id="att-weekly"><div class="empty">Loading…</div></div></div>
   </div></div>
 </div>
-
+ 
 <!-- ═══════════ SCORES ═══════════ -->
 <div id="pg-scores" class="page" style="background:#0b2416">
   <div class="sec"><div class="con">
@@ -598,7 +652,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
     <div id="scores-con"></div>
   </div></div>
 </div>
-
+ 
 <!-- ═══════════ WEEKLY RESULTS ═══════════ -->
 <div id="pg-weekly" class="page">
   <div class="sec"><div class="con">
@@ -607,7 +661,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
     <div id="weekly-con"><div class="empty">Loading…</div></div>
   </div></div>
 </div>
-
+ 
 <!-- ═══════════ RESULTS ARCHIVE ═══════════ -->
 <div id="pg-results" class="page">
   <div class="sec"><div class="con">
@@ -615,7 +669,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
     <div id="results-con"><div class="empty">Loading…</div></div>
   </div></div>
 </div>
-
+ 
 <!-- ═══════════ FINES ═══════════ -->
 <div id="pg-fines" class="page">
   <div class="sec"><div class="con">
@@ -623,7 +677,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
     <div id="fines-con"><div class="empty">Loading…</div></div>
   </div></div>
 </div>
-
+ 
 <!-- ═══════════ PHOTOS ═══════════ -->
 <div id="pg-photos" class="page" style="background:#0a1f11">
   <div class="sec"><div class="con">
@@ -631,7 +685,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
     <div id="photos-con"><div class="empty">Loading…</div></div>
   </div></div>
 </div>
-
+ 
 <!-- ═══════════ NOTICE BOARD ═══════════ -->
 <div id="pg-notice" class="page" style="background:#0f2d1c">
   <div class="sec"><div class="con">
@@ -640,7 +694,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
     <div id="notice-list"><div class="empty">Loading…</div></div>
   </div></div>
 </div>
-
+ 
 <!-- ═══════════ ADMIN ═══════════ -->
 <div id="pg-admin" class="page" style="background:#070f0a">
   <div class="sec"><div class="con">
@@ -648,7 +702,19 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
     <div id="admin-con"></div>
   </div></div>
 </div>
-
+ 
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <span style="color:var(--gold);font-size:1.1rem">🔍</span>
+    <input type="text" id="search-input" placeholder="Search members, results, pages…" oninput="doSearch(this.value)" onkeydown="if(event.key==='Escape')closeSearch()"/>
+    <button class="search-close" onclick="closeSearch()">✕</button>
+  </div>
+  <div class="search-results" id="search-results">
+    <div class="search-result-empty">Start typing to search…</div>
+  </div>
+</div>
+ 
 <!-- PASSWORD MODAL -->
 <div class="mo" id="modal-overlay">
   <div class="modal">
@@ -661,22 +727,22 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
     <button class="btn btn-p btn-fw" style="margin-top:.5rem" onclick="doLogin()">Enter</button>
   </div>
 </div>
-
+ 
 <!-- LIGHTBOX -->
 <div class="lbox" id="lbox" onclick="closeLb()">
   <button class="lbox-x" onclick="closeLb()">✕</button>
   <img id="lbox-img" src="" alt=""/>
   <div class="lbox-cap" id="lbox-cap"></div>
 </div>
-
+ 
 <div class="toast" id="toast"></div>
-
+ 
 <script>
 const SUPABASE_URL='https://haznqiplngyklhyladiw.supabase.co';
 const SUPABASE_ANON_KEY='sb_publishable_eoIxKWBSHGKE4d2fbLFa5w_mn2h-iVA';
 const{createClient}=supabase;
 const db=createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
-
+ 
 // Carnalea Golf Club course data
 const COURSE={
   par:[4,3,4,4,5,3,4,4,4,4,4,3,4,5,3,4,4,4],
@@ -684,28 +750,28 @@ const COURSE={
   par3s:[1,5,11,14],   // 0-based hole indices
   par45s:[0,2,3,4,6,7,8,9,10,12,13,15,16,17]
 };
-
+ 
 // Position points for handicap cuts & merit
 // 1st=5pts, 2nd=3pts, 3rd=1pt — accumulate to 7 for 1 shot cut
 // 4th = 1 merit point (separate tracker)
 const POS_POINTS={1:5, 2:3, 3:1};
 const MERIT_POS=4;
 const CUT_THRESHOLD=7;
-
+ 
 // Money split
 const MONEY_SPLIT={1:0.60, 2:0.30, 3:0.10};
-
+ 
 // ── SIMPLE PASSWORD AUTH ──
 // Change this password to whatever you want the lads to use!
 const SOCIETY_PASSWORD = 'nomads2025';
 let isLoggedIn = sessionStorage.getItem('nomads_auth') === 'true';
 let currentName = sessionStorage.getItem('nomads_name') || '';
 let AM = [];
-
+ 
 // These make all the existing CU/CM checks work seamlessly
 Object.defineProperty(window,'CU',{get:()=>isLoggedIn,configurable:true});
 Object.defineProperty(window,'CM',{get:()=>isLoggedIn?{name:currentName,role:'admin',approved:true,id:'local'}:null,configurable:true});
-
+ 
 function toast(msg,err=false){
   const t=document.getElementById('toast');
   t.textContent=msg;t.className='toast show'+(err?' err':'');
@@ -718,13 +784,12 @@ function openModal(){
 }
 function closeModal(){document.getElementById('modal-overlay').classList.remove('open');}
 document.getElementById('modal-overlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
-function toggleMore(){document.getElementById('more-menu').classList.toggle('open');}
-function closeMore(){document.getElementById('more-menu').classList.remove('open');}
-document.addEventListener('click',e=>{
-  const m=document.getElementById('more-menu');
-  if(m&&!m.contains(e.target)&&!e.target.closest('#bn-more'))closeMore();
-});
-
+function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('drawer-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('drawer-overlay').classList.remove('open');document.body.style.overflow='';}
+function drawerAuth(){if(isLoggedIn)doLogout();else openModal();}
+function toggleMore(){openDrawer();}
+function closeMore(){closeDrawer();}
+ 
 function swLb(t,btn){
   document.querySelectorAll('.lbt-i').forEach(x=>x.classList.remove('act'));
   btn.classList.add('act');
@@ -742,7 +807,7 @@ function rand(a){return a[Math.floor(Math.random()*a.length)];}
 function openLb(src,cap){document.getElementById('lbox-img').src=src;document.getElementById('lbox-cap').textContent=cap||'';document.getElementById('lbox').classList.add('open');}
 function closeLb(){document.getElementById('lbox').classList.remove('open');}
 function fmtMoney(n){return'£'+parseFloat(n).toFixed(2);}
-
+ 
 // ═══════════════════════════════════════
 // NAVIGATION
 // ═══════════════════════════════════════
@@ -751,8 +816,7 @@ function go(page){
   document.getElementById('pg-'+page).classList.add('active');
   document.querySelectorAll('.tnav-links a').forEach(a=>a.classList.remove('act'));
   const da=document.getElementById('dn-'+page);if(da)da.classList.add('act');
-  document.querySelectorAll('.bni').forEach(b=>b.classList.remove('act'));
-  const bn=document.getElementById('bn-'+page);if(bn)bn.classList.add('act');
+ 
   window.scrollTo(0,0);closeMore();
   const loaders={
     members:loadMembers,scores:renderScores,results:loadResults,
@@ -762,7 +826,7 @@ function go(page){
   };
   if(loaders[page])loaders[page]();
 }
-
+ 
 // ═══════════════════════════════════════
 // AUTH
 // ═══════════════════════════════════════
@@ -792,34 +856,49 @@ function doLogout(){
   updateNavAuth();toast('Signed out');
   loadHomeData();
 }
-function moreMenuAuth(){
-  if(isLoggedIn){doLogout();}
-  else{openModal();}
-}
 function updateNavAuth(){
   const area=document.getElementById('nav-auth');
-  const moreLbl=document.getElementById('more-menu-auth-lbl');
-  const moreIcon=document.getElementById('more-menu-auth');
+  const df=document.getElementById('drawer-footer');
   if(isLoggedIn){
     if(area)area.innerHTML=`<span class="nav-user-txt">${currentName.split(' ')[0]}</span> <button class="nav-btn" onclick="doLogout()">Sign Out</button>`;
-    if(moreLbl)moreLbl.textContent='Sign Out ('+currentName.split(' ')[0]+')';
-    if(moreIcon)moreIcon.querySelector('.mmi-icon').textContent='🔓';
+    if(df)df.innerHTML=`<div class="drawer-user">👋 ${currentName}</div><button class="drawer-auth-btn" onclick="doLogout();closeDrawer()">Sign Out</button>`;
   } else {
     if(area)area.innerHTML=`<button class="nav-btn" onclick="openModal()">🔐 Edit Mode</button>`;
-    if(moreLbl)moreLbl.textContent='Edit Mode';
-    if(moreIcon)moreIcon.querySelector('.mmi-icon').textContent='🔐';
+    if(df)df.innerHTML=`<button class="drawer-auth-btn" onclick="openModal();closeDrawer()">🔐 Edit Mode</button>`;
   }
 }
-
+ 
 // ═══════════════════════════════════════
 // HOME DATA
 // ═══════════════════════════════════════
+// ── DEMO DATA shown when database is empty ──
+const DEMO={
+  members:[
+    {name:'Nathan McCabe',handicap:12.4,club_handicap:12.4,pos_points:18,pos_points_accum:4,merit_points:1,rounds_played:8,total_winnings:42,fines_total:0,fines_paid:0,cuts:2,season_points:280},
+    {name:'Paddy O\'Brien',handicap:16.1,club_handicap:17,pos_points:11,pos_points_accum:4,merit_points:3,rounds_played:7,total_winnings:24,fines_total:4,fines_paid:2,cuts:1,season_points:245},
+    {name:'Conor Walsh',handicap:9.8,club_handicap:11,pos_points:8,pos_points_accum:1,merit_points:2,rounds_played:8,total_winnings:18,fines_total:0,fines_paid:0,cuts:1,season_points:238},
+    {name:'Declan Hughes',handicap:21.0,club_handicap:21,pos_points:5,pos_points_accum:5,merit_points:4,rounds_played:6,total_winnings:12,fines_total:2,fines_paid:2,cuts:0,season_points:210},
+    {name:'Rory McAllister',handicap:18.5,club_handicap:18.5,pos_points:3,pos_points_accum:3,merit_points:2,rounds_played:5,total_winnings:8,fines_total:6,fines_paid:4,cuts:0,season_points:195},
+    {name:'Eamonn Doherty',handicap:14.2,club_handicap:14.2,pos_points:1,pos_points_accum:1,merit_points:5,rounds_played:8,total_winnings:4,fines_total:0,fines_paid:0,cuts:0,season_points:188},
+    {name:'Sean Fitzpatrick',handicap:24.6,club_handicap:24.6,pos_points:0,pos_points_accum:0,merit_points:1,rounds_played:4,total_winnings:0,fines_total:4,fines_paid:0,cuts:0,season_points:156},
+    {name:'Gary Thompson',handicap:11.3,club_handicap:11.3,pos_points:0,pos_points_accum:0,merit_points:3,rounds_played:6,total_winnings:0,fines_total:0,fines_paid:0,cuts:0,season_points:142},
+  ],
+  sunday:[
+    {member_name:'Nathan McCabe',stableford_total:38,stableford_front:19,stableford_back:19,pos:1},
+    {member_name:'Conor Walsh',stableford_total:36,stableford_front:18,stableford_back:18,pos:2},
+    {member_name:'Paddy O\'Brien',stableford_total:34,stableford_front:16,stableford_back:18,pos:3},
+    {member_name:'Declan Hughes',stableford_total:32,stableford_front:15,stableford_back:17,pos:4},
+    {member_name:'Rory McAllister',stableford_total:30,stableford_front:14,stableford_back:16,pos:5},
+  ]
+};
+ 
 async function loadHomeData(){
   const{count}=await db.from('members').select('*',{count:'exact',head:true}).eq('approved',true);
-  const el=document.getElementById('stat-mem');if(el)el.textContent=count||'—';
+  const el=document.getElementById('stat-mem');
+  if(el)el.textContent=(count&&count>0)?count:DEMO.members.length;
   loadHomeSun();loadSunLb();loadSeaLb();loadHonours();
 }
-
+ 
 async function loadHomeSun(){
   const ds=getSun(),el=document.getElementById('home-sun');if(!el)return;
   let draw=null;
@@ -834,38 +913,45 @@ async function loadHomeSun(){
       </div>
     </div>`;
   } else {
-    el.innerHTML=`<div class="sbox" style="text-align:center">
-      <div class="sbox-t">No draw yet for ${fmt(ds)}</div>
-      <p style="font-family:'Cormorant Garamond',serif;font-size:.93rem;color:rgba(249,244,232,.42);font-style:italic;margin:.5rem 0 .9rem">Sign up and the admin will generate the draw</p>
-      <button class="btn btn-s" style="font-size:.55rem;padding:.56rem 1.2rem" onclick="go('draw')">Sign Up →</button>
+    el.innerHTML=`<div class="sbox">
+      <div class="sbox-t">⛳ This Sunday — ${fmt(ds)}</div>
+      <div class="sprow" style="margin-bottom:1rem">
+        <div class="spc"><div class="spc-i">🎯</div><span class="spc-l">Closest to Pin</span><div class="spc-v">Hole 6</div><div class="spc-s">Par 3 · Sign up to play</div></div>
+        <div class="spc"><div class="spc-i">💨</div><span class="spc-l">Longest Drive</span><div class="spc-v">Hole 14</div><div class="spc-s">Par 5 · Sign up to play</div></div>
+      </div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:.93rem;color:rgba(249,244,232,.55);font-style:italic;margin-bottom:.9rem">🔐 Enter edit mode to sign up for Sunday</p>
+      <button class="btn btn-s" style="font-size:.55rem;padding:.56rem 1.2rem" onclick="go('draw')">Go to Draw →</button>
     </div>`;
   }
 }
-
+ 
 async function loadSunLb(){
   const{data}=await db.from('rounds')
     .select('member_name,stableford_total,stableford_front,stableford_back')
     .eq('round_date',getSun())
     .order('stableford_total',{ascending:false});
-  if(!data?.length){document.getElementById('sun-lb').innerHTML='<div class="empty">No scores yet this Sunday ⛳</div>';return;}
-  // rank with back 9 tiebreak
-  const ranked=rankPlayers(data);
+  const rows=data?.length?data:DEMO.sunday;
+  const isDemo=!data?.length;
+  const ranked=rankPlayers(rows);
+  const icons=['👑','🥈','🥉','🎯'];
   let h=`<div class="tw"><table><thead><tr><th>Pos</th><th>Member</th><th>Front</th><th>Back</th><th>Total</th></tr></thead><tbody>`;
   ranked.forEach(r=>{
-    const icons=['👑','🥈','🥉','🎯'];
     h+=`<tr><td class="pc">${icons[r.pos-1]||r.pos}</td><td class="nc">${r.member_name}</td><td>${r.stableford_front}</td><td>${r.stableford_back}</td><td class="ptc">${r.stableford_total}</td></tr>`;
   });
-  document.getElementById('sun-lb').innerHTML=h+'</tbody></table></div>';
+  h+='</tbody></table></div>';
+  if(isDemo)h+=`<p style="text-align:center;margin-top:.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(249,244,232,.3)">📋 Example data — real scores will appear here each Sunday</p>`;
+  document.getElementById('sun-lb').innerHTML=h;
 }
-
+ 
 async function loadSeaLb(){
   const{data}=await db.from('members')
     .select('name,handicap,cuts,pos_points,merit_points,season_points,rounds_played,total_winnings')
     .eq('approved',true)
     .order('season_points',{ascending:false});
-  if(!data?.length){document.getElementById('sea-lb').innerHTML='<div class="empty">No scores yet ⛳</div>';return;}
+  const rows=data?.length?data:DEMO.members;
+  const isDemo=!data?.length;
   let h=`<div class="tw"><table><thead><tr><th>Pos</th><th>Member</th><th>Hcp</th><th>Rounds</th><th>Pos Pts</th><th>Merit</th><th>Winnings</th></tr></thead><tbody>`;
-  data.forEach((m,i)=>h+=`<tr>
+  rows.forEach((m,i)=>h+=`<tr>
     <td class="pc">${i+1}</td><td class="nc">${m.name}</td>
     <td><span class="bdg">${m.handicap?.toFixed(1)||'—'}</span></td>
     <td>${m.rounds_played||0}</td>
@@ -873,61 +959,74 @@ async function loadSeaLb(){
     <td><span class="bdg-b">${m.merit_points||0}</span></td>
     <td style="color:var(--grn);font-weight:600">${fmtMoney(m.total_winnings||0)}</td>
   </tr>`);
-  document.getElementById('sea-lb').innerHTML=h+'</tbody></table></div>';
+  h+='</tbody></table></div>';
+  if(isDemo)h+=`<p style="text-align:center;margin-top:.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(249,244,232,.3)">📋 Example data — add your members in Admin to get started</p>`;
+  document.getElementById('sea-lb').innerHTML=h;
 }
-
+ 
 async function loadAttLb(){
   const{data:s}=await db.from('rounds').select('round_date');
   const total=Math.max([...new Set((s||[]).map(r=>r.round_date))].length,1);
   const{data}=await db.from('members').select('name,rounds_played').eq('approved',true).order('rounds_played',{ascending:false});
-  if(!data?.length){document.getElementById('att-lb').innerHTML='<div class="empty">No data yet</div>';return;}
+  const rows=data?.length?data:DEMO.members;
+  const isDemo=!data?.length;
   let h=`<div class="tw"><table><thead><tr><th>Pos</th><th>Member</th><th>Rounds</th><th>Attendance</th></tr></thead><tbody>`;
-  data.forEach((m,i)=>{const pct=Math.round(((m.rounds_played||0)/total)*100);
-    h+=`<tr><td class="pc">${i+1}</td><td class="nc">${m.name}</td><td>${m.rounds_played||0}/${total}</td><td class="ptc">${pct}%</td></tr>`;});
-  document.getElementById('att-lb').innerHTML=h+'</tbody></table></div>';
+  rows.forEach((m,i)=>{const pct=isDemo?Math.round((m.rounds_played/8)*100):Math.round(((m.rounds_played||0)/total)*100);
+    h+=`<tr><td class="pc">${i+1}</td><td class="nc">${m.name}</td><td>${m.rounds_played||0}${isDemo?'/8':'/'+total}</td><td class="ptc">${pct}%</td></tr>`;});
+  h+='</tbody></table></div>';
+  if(isDemo)h+=`<p style="text-align:center;margin-top:.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(249,244,232,.3)">📋 Example data</p>`;
+  document.getElementById('att-lb').innerHTML=h;
 }
-
+ 
 async function loadFinLb(){
   const{data}=await db.from('members').select('name,fines_total,fines_paid').eq('approved',true).order('fines_total',{ascending:false});
-  if(!data||data.every(m=>!m.fines_total)){document.getElementById('fin-lb').innerHTML='<div class="empty">No fines yet 🎉</div>';return;}
+  const hasFines=data?.some(m=>m.fines_total>0);
+  const rows=hasFines?data.filter(m=>m.fines_total>0):DEMO.members.filter(m=>m.fines_total>0);
+  const isDemo=!hasFines;
   let h=`<div class="tw"><table><thead><tr><th>Pos</th><th>Member</th><th>Fines</th><th>Owed</th></tr></thead><tbody>`;
-  data.filter(m=>m.fines_total>0).forEach((m,i)=>{
+  rows.forEach((m,i)=>{
     const owed=(m.fines_total||0)-(m.fines_paid||0);
     h+=`<tr><td class="pc">${i===0?'🍺':i+1}</td><td class="nc">${m.name}</td>
     <td><span class="bdg-o">${fmtMoney(m.fines_total)}</span></td>
     <td>${owed>0?`<span class="bdg-r">${fmtMoney(owed)}</span>`:'<span class="bdg-g">Clear</span>'}</td></tr>`;});
   h+='</tbody></table></div><p style="text-align:center;margin-top:.7rem;font-family:Cormorant Garamond,serif;font-style:italic;font-size:.88rem;color:rgba(249,244,232,.35)">🍺 Top of this board buys everyone a drink at Christmas!</p>';
+  if(isDemo)h+=`<p style="text-align:center;margin-top:.4rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(249,244,232,.3)">📋 Example data</p>`;
   document.getElementById('fin-lb').innerHTML=h;
 }
-
+ 
 async function loadMeritLb(){
   const{data}=await db.from('members').select('name,merit_points').eq('approved',true).order('merit_points',{ascending:false});
-  if(!data?.length){document.getElementById('merit-lb').innerHTML='<div class="empty">No merit points yet</div>';return;}
+  const rows=data?.length?data:DEMO.members;
+  const isDemo=!data?.length;
   let h=`<div class="tw"><table><thead><tr><th>Pos</th><th>Member</th><th>Merit Points</th></tr></thead><tbody>`;
-  data.filter(m=>m.merit_points>0).forEach((m,i)=>h+=`<tr><td class="pc">${i+1}</td><td class="nc">${m.name}</td><td class="ptc">${m.merit_points}</td></tr>`);
-  if(data.every(m=>!m.merit_points)){h+='<tr><td colspan="3" class="empty" style="padding:1.5rem">No merit points yet</td></tr>';}
-  document.getElementById('merit-lb').innerHTML=h+'</tbody></table></div>';
+  rows.filter(m=>(m.merit_points||0)>0).forEach((m,i)=>h+=`<tr><td class="pc">${i+1}</td><td class="nc">${m.name}</td><td class="ptc">${m.merit_points}</td></tr>`);
+  if(rows.every(m=>!m.merit_points)){h+='<tr><td colspan="3" class="empty" style="padding:1.5rem">No merit points yet</td></tr>';}
+  h+='</tbody></table></div>';
+  if(isDemo)h+=`<p style="text-align:center;margin-top:.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(249,244,232,.3)">📋 Example data</p>`;
+  document.getElementById('merit-lb').innerHTML=h;
 }
-
+ 
 async function loadHonours(){
   let d=[];
   try{const r=await db.from('honours').select('*');d=r.data||[];}catch(e){}
-  d.forEach(h=>{const el=document.getElementById('h-'+h.key);if(el)el.textContent=h.value;});
+  d.forEach(h=>{const el=document.getElementById('h-'+h.key);if(el&&h.value&&h.value!=='TBC')el.textContent=h.value;});
   const{data:mem}=await db.from('members').select('name,pos_points,fines_total,rounds_played,merit_points,total_winnings').eq('approved',true);
-  if(mem?.length){
-    const tw=[...mem].sort((a,b)=>(b.pos_points||0)-(a.pos_points||0))[0];
-    const tf=[...mem].sort((a,b)=>(b.fines_total||0)-(a.fines_total||0))[0];
-    const ta=[...mem].sort((a,b)=>(b.rounds_played||0)-(a.rounds_played||0))[0];
-    const tm=[...mem].sort((a,b)=>(b.merit_points||0)-(a.merit_points||0))[0];
-    const tw2=[...mem].sort((a,b)=>(b.total_winnings||0)-(a.total_winnings||0))[0];
-    if(tw?.pos_points>0){const e=document.getElementById('h-wins');if(e)e.textContent=tw.name;}
-    if(tf?.fines_total>0){const e=document.getElementById('h-fines');if(e)e.textContent=tf.name+' 🍺';}
-    if(ta?.rounds_played>0){const e=document.getElementById('h-attendance');if(e)e.textContent=ta.name;}
-    if(tm?.merit_points>0){const e=document.getElementById('h-merit');if(e)e.textContent=tm.name;}
-    if(tw2?.total_winnings>0){const e=document.getElementById('h-earnings');if(e)e.textContent=fmtMoney(tw2.total_winnings);}
-  }
+  const src=mem?.length?mem:DEMO.members;
+  const tw=[...src].sort((a,b)=>(b.pos_points||0)-(a.pos_points||0))[0];
+  const tf=[...src].sort((a,b)=>(b.fines_total||0)-(a.fines_total||0))[0];
+  const ta=[...src].sort((a,b)=>(b.rounds_played||0)-(a.rounds_played||0))[0];
+  const tm=[...src].sort((a,b)=>(b.merit_points||0)-(a.merit_points||0))[0];
+  const tw2=[...src].sort((a,b)=>(b.total_winnings||0)-(a.total_winnings||0))[0];
+  if(tw){const e=document.getElementById('h-wins');if(e)e.textContent=tw.name;}
+  if(tf?.fines_total>0){const e=document.getElementById('h-fines');if(e)e.textContent=tf.name+' 🍺';}
+  if(ta){const e=document.getElementById('h-attendance');if(e)e.textContent=ta.name;}
+  if(tm?.merit_points>0){const e=document.getElementById('h-merit');if(e)e.textContent=tm.name;}
+  if(tw2?.total_winnings>0){const e=document.getElementById('h-earnings');if(e)e.textContent=fmtMoney(tw2.total_winnings);}
+  // Set captain/president if not already set
+  const cap=document.getElementById('h-captain');if(cap&&cap.textContent==='—')cap.textContent='TBC 2025';
+  const pres=document.getElementById('h-president');if(pres&&pres.textContent==='—')pres.textContent='TBC 2025';
 }
-
+ 
 // ═══════════════════════════════════════
 // RANKING — back 9 tiebreak for all positions
 // ═══════════════════════════════════════
@@ -939,17 +1038,17 @@ function rankPlayers(players){
   });
   return sorted.map((p,i)=>({...p,pos:i+1}));
 }
-
+ 
 function calcPot(playerCount){
   return playerCount*2;
 }
-
+ 
 function calcWinnings(pot,pos){
   const split=MONEY_SPLIT[pos];
   if(!split)return 0;
   return Math.round(pot*split*100)/100;
 }
-
+ 
 // ═══════════════════════════════════════
 // DRAW
 // ═══════════════════════════════════════
@@ -961,29 +1060,29 @@ async function renderDraw(){
   const{data:signups}=await db.from('draw_signups').select('*').eq('draw_date',ds).order('signed_up_at');
   const sl=signups||[];
   const userIn=isLoggedIn?sl.some(s=>s.member_name===currentName):false;
-
+ 
   let html=`<div style="text-align:center;margin-bottom:1.4rem">
     <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.26em;color:var(--gold);text-transform:uppercase">${fmt(ds)}</div>
     <div style="font-family:'Cormorant Garamond',serif;font-size:.92rem;color:rgba(249,244,232,.42);font-style:italic;margin-top:.28rem">${sl.length} player${sl.length!==1?'s':''} signed up</div>
   </div>`;
-
+ 
   if(isLoggedIn){
     if(!userIn)html+=`<div style="text-align:center;margin-bottom:1.3rem"><button class="btn btn-p btn-lg" onclick="signUp()">✅ Sign Up for This Sunday</button></div>`;
     else html+=`<div style="text-align:center;margin-bottom:1.3rem"><div style="font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.16em;color:var(--grn);margin-bottom:.6rem;text-transform:uppercase">✓ You're signed up!</div><button class="btn btn-s" style="font-size:.54rem;padding:.56rem 1.3rem" onclick="withdraw()">Withdraw</button></div>`;
   } else if(!CU){
     html+=`<div style="text-align:center;margin-bottom:1.3rem"><p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(249,244,232,.42);margin-bottom:.7rem">Login to sign up for Sunday</p><button class="btn btn-s" onclick="openModal()">Member Login</button></div>`;
   }
-
+ 
   html+=`<div class="draw-step"><div class="draw-step-title">Players Signed Up (${sl.length})</div>
     <div class="pgrid">${sl.length===0?'<div style="color:rgba(249,244,232,.35);font-style:italic">No sign-ups yet</div>':
       sl.map(s=>`<div class="pchip sel"><span class="pcn">✓ ${s.member_name}</span><span class="pch">${s.handicap?.toFixed(1)||'?'}</span></div>`).join('')}
     </div>
   </div>`;
-
+ 
   if(draw?.groups)html+=renderDrawResult(draw);
   else if(isLoggedIn&&sl.length>=3)html+=`<div style="text-align:center;margin-top:1.3rem"><button class="btn btn-p btn-lg" onclick="genDraw()">🎲 Generate Draw</button></div>`;
   else if(isLoggedIn)html+=`<div class="empty">Need at least 3 players signed up to generate the draw</div>`;
-
+ 
   if(draw&&isLoggedIn){
     html+=`<div class="draw-step" style="margin-top:1rem">
       <div class="draw-step-title">Enter Special Winners</div>
@@ -1000,7 +1099,7 @@ async function renderDraw(){
   }
   el.innerHTML=html;
 }
-
+ 
 function renderDrawResult(draw){
   return`<div class="dr">
     <div class="dr-t">🎲 Official Draw — ${fmt(draw.draw_date)}</div>
@@ -1014,7 +1113,7 @@ function renderDrawResult(draw){
     </div>
   </div>`;
 }
-
+ 
 async function saveSpecials(ds){
   const ctp=document.getElementById('ctp-w')?.value.trim(),ld=document.getElementById('ld-w')?.value.trim();
   await db.from('sunday_draws').update({ctp_winner:ctp||null,ld_winner:ld||null}).eq('draw_date',ds);
@@ -1062,7 +1161,7 @@ async function clearDraw(){
   await db.from('draw_signups').delete().eq('draw_date',d);
   toast('Draw cleared');renderDraw();
 }
-
+ 
 // ═══════════════════════════════════════
 // MEMBERS
 // ═══════════════════════════════════════
@@ -1072,14 +1171,17 @@ async function loadMembers(){
   const{data:s}=await db.from('rounds').select('round_date');
   const total=Math.max([...new Set((s||[]).map(r=>r.round_date))].length,1);
   const grid=document.getElementById('mem-grid');
-  if(!data?.length){grid.innerHTML='<div class="empty">No members yet</div>';return;}
-  grid.innerHTML=data.map(m=>{
-    const pct=Math.min(100,Math.round(((m.rounds_played||0)/total)*100));
+  const rows=data?.length?data:DEMO.members;
+  const isDemo=!data?.length;
+  const totalR=isDemo?8:total;
+  grid.innerHTML=(isDemo?`<div style="grid-column:1/-1;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;color:rgba(249,244,232,.4);text-align:center;padding:.5rem 0 1rem">📋 Example members shown — go to ⚙️ Admin to add your real members</div>`:'')
+  +rows.map(m=>{
+    const pct=Math.min(100,Math.round(((m.rounds_played||0)/totalR)*100));
     return`<div class="mcard">
       ${m.photo_url?`<img class="mphoto" src="${m.photo_url}" alt="${m.name}" onerror="this.style.display='none'">`:`<div class="mavatar">👤</div>`}
       <div class="mname">${m.name}</div>
       <div class="mhcp">Hcp <span>${m.handicap?.toFixed(1)||'—'}</span></div>
-      ${m.cuts>0?`<div class="msub" style="color:var(--red)">✂️ ${m.cuts} cut${m.cuts!==1?'s':''}</div>`:''}
+      ${(m.cuts||0)>0?`<div class="msub" style="color:var(--red)">✂️ ${m.cuts} cut${m.cuts!==1?'s':''}</div>`:''}
       <div class="msub" style="color:rgba(249,244,232,.45)">${m.pos_points||0} pos pts · ${m.merit_points||0} merit</div>
       <div class="msub" style="color:var(--grn)">${fmtMoney(m.total_winnings||0)} won</div>
       ${(m.fines_total||0)>0?`<div class="msub" style="color:orange">💸 ${fmtMoney(m.fines_total)}</div>`:''}
@@ -1090,7 +1192,7 @@ async function loadMembers(){
     </div>`;
   }).join('');
 }
-
+ 
 // ═══════════════════════════════════════
 // ATTENDANCE PAGE
 // ═══════════════════════════════════════
@@ -1121,7 +1223,7 @@ async function loadAttPage(){
         ${isLoggedIn?`<button class="btn btn-sm" onclick="manualAtt('${d}')">Edit</button>`:''}
       </div>`;}).join('');
 }
-
+ 
 async function manualAtt(ds){
   if(!AM.length)await loadMembers();
   const name=prompt(`Add/remove attendance for ${ds}\nEnter member name:`);if(!name)return;
@@ -1142,7 +1244,7 @@ async function manualAtt(ds){
   }
   loadAttPage();
 }
-
+ 
 // ═══════════════════════════════════════
 // SCORE ENTRY
 // ═══════════════════════════════════════
@@ -1170,7 +1272,7 @@ function renderScores(){
   </div>`;
   buildSC();loadFB();
 }
-
+ 
 function buildSC(){
   function half(holes){
     return`<div class="scow"><div class="scg" style="grid-template-columns:62px repeat(9,1fr);min-width:430px">
@@ -1185,7 +1287,7 @@ function buildSC(){
     `<div class="divider" style="margin:.6rem 0"></div>`+
     half([9,10,11,12,13,14,15,16,17]);
 }
-
+ 
 function calcSF(scores,hcp){
   let t=0,f=0,b=0;
   const s=Math.round(hcp),ex=s%18,base=Math.floor(s/18);
@@ -1196,7 +1298,7 @@ function calcSF(scores,hcp){
   });
   return{total:t,front:f,back:b};
 }
-
+ 
 function updSF(){
   const hcp=parseFloat(document.getElementById('sc-hcp').value);
   const scores=Array.from({length:18},(_,i)=>document.getElementById('h'+i)?.value||'');
@@ -1213,7 +1315,7 @@ function updSF(){
     <div class="sf-row"><span class="sf-l">Back 9</span><span class="sf-v">${back} pts</span></div>
     <div class="sf-row"><span class="sf-l">Total Stableford</span><span class="sf-v">${total} pts</span></div>`;
 }
-
+ 
 async function loadFB(){
   if(!AM.length){const{data}=await db.from('members').select('id,name,handicap').eq('approved',true).order('name');AM=data||[];}
   const others=AM.filter(m=>m.id!==CU?.id);
@@ -1228,7 +1330,7 @@ function checkFb(cb){
   if(document.querySelectorAll('input[name=fb]:checked').length>3){cb.checked=false;toast('Max 3 partners (4-ball total)',true);return;}
   document.querySelectorAll('.pchip').forEach(el=>el.classList.toggle('sel',el.querySelector('input')?.checked));
 }
-
+ 
 async function submitScores(){
   const date=document.getElementById('sc-date').value,hcp=parseFloat(document.getElementById('sc-hcp').value);
   const scores=Array.from({length:18},(_,i)=>{const v=document.getElementById('h'+i)?.value;return v?parseInt(v):null;});
@@ -1250,22 +1352,22 @@ async function submitScores(){
   await processRoundResults(date);
   go('home');
 }
-
+ 
 // ═══════════════════════════════════════
 // PROCESS RESULTS — positions, money, handicap cuts, merit
 // ═══════════════════════════════════════
 async function processRoundResults(dateStr){
   const{data}=await db.from('rounds').select('*').eq('round_date',dateStr).eq('admin_override',null);
   if(!data||data.length<2)return;
-
+ 
   // Check if already processed
   const{data:existing}=await db.from('round_results').select('id').eq('round_date',dateStr).single().catch(()=>({data:null}));
   if(existing)return;
-
+ 
   const ranked=rankPlayers(data);
   const playerCount=ranked.length;
   const pot=calcPot(playerCount);
-
+ 
   // Store results for each position
   const results=[];
   for(const r of ranked){
@@ -1275,19 +1377,19 @@ async function processRoundResults(dateStr){
     const winnings=calcWinnings(pot,pos);
     results.push({member_id:r.member_id,member_name:r.member_name,pos,stableford_total:r.stableford_total,stableford_back:r.stableford_back||0,pos_points_earned:pts,merit_earned:merit,winnings});
   }
-
+ 
   // Save round results table
   await db.from('round_results').insert(results.map(r=>({...r,round_date:dateStr,player_count:playerCount,pot_total:pot})));
-
+ 
   // Update each member's running totals + handicap cut logic
   for(const r of results){
     const{data:mem}=await db.from('members').select('*').eq('id',r.member_id).single();
     if(!mem)continue;
-
+ 
     const newPosPoints=(mem.pos_points||0)+r.pos_points_earned;
     const newMerit=(mem.merit_points||0)+r.merit_earned;
     const newWinnings=(mem.total_winnings||0)+r.winnings;
-
+ 
     // Handicap cut: every 7 accumulated pos points = 1 shot cut
     let currentAccum=(mem.pos_points_accum||0)+r.pos_points_earned;
     let cuts=mem.cuts||0;
@@ -1297,7 +1399,7 @@ async function processRoundResults(dateStr){
       cuts++;
       newHcp=Math.max(0,newHcp-1);
     }
-
+ 
     await db.from('members').update({
       pos_points:newPosPoints,
       pos_points_accum:currentAccum,
@@ -1306,13 +1408,13 @@ async function processRoundResults(dateStr){
       cuts,
       handicap:newHcp
     }).eq('id',r.member_id);
-
+ 
     if(r.pos===1&&newHcp<parseFloat(mem.handicap)){
       toast(`🏆 ${r.member_name} wins! Handicap cut to ${newHcp.toFixed(1)}`);
     }
   }
 }
-
+ 
 // ═══════════════════════════════════════
 // WEEKLY RESULTS PAGE
 // ═══════════════════════════════════════
@@ -1321,12 +1423,12 @@ async function loadWeekly(){
   const{data:results}=await db.from('round_results').select('*').order('round_date',{ascending:false});
   const{data:draws}=await db.from('sunday_draws').select('draw_date,ctp_hole,ctp_winner,ld_hole,ld_winner');
   if(!results?.length){el.innerHTML='<div class="empty">No weekly results yet</div>';return;}
-
+ 
   // Group by date
   const byDate={};
   results.forEach(r=>{if(!byDate[r.round_date])byDate[r.round_date]=[];byDate[r.round_date].push(r);});
   const drawMap={};(draws||[]).forEach(d=>drawMap[d.draw_date]=d);
-
+ 
   el.innerHTML=Object.entries(byDate).map(([date,rows])=>{
     const sorted=rows.sort((a,b)=>a.pos-b.pos);
     const pot=sorted[0]?.pot_total||0;
@@ -1363,7 +1465,7 @@ async function loadWeekly(){
     </div>`;
   }).join('');
 }
-
+ 
 async function reprocessRound(dateStr){
   if(!confirm(`Reprocess results for ${dateStr}? This will recalculate positions, money and points.`))return;
   await db.from('round_results').delete().eq('round_date',dateStr);
@@ -1377,7 +1479,7 @@ async function deleteRound(dateStr){
   await db.from('round_winners').delete().eq('round_date',dateStr);
   toast('Round deleted');loadWeekly();
 }
-
+ 
 // ═══════════════════════════════════════
 // RESULTS ARCHIVE
 // ═══════════════════════════════════════
@@ -1418,7 +1520,7 @@ async function loadResults(){
     </div>`;
   }).join('');
 }
-
+ 
 // ═══════════════════════════════════════
 // FINES
 // ═══════════════════════════════════════
@@ -1469,7 +1571,7 @@ async function markPaid(id,name,amt){
   if(m)await db.from('members').update({fines_paid:(m.fines_paid||0)+amt}).eq('name',name);
   toast(`Fine paid for ${name}`);loadFines();
 }
-
+ 
 // ═══════════════════════════════════════
 // PHOTOS
 // ═══════════════════════════════════════
@@ -1523,7 +1625,7 @@ async function uploadPhoto(input){
   setTimeout(()=>{if(status)status.innerHTML='';},3000);
   loadPhotoGallery(document.querySelector('.ptab.act')?.textContent||'all');
 }
-
+ 
 // ═══════════════════════════════════════
 // NOTICE BOARD
 // ═══════════════════════════════════════
@@ -1548,7 +1650,7 @@ async function postNotice(){
   await db.from('notices').insert({title,body,author_id:null,author_name:currentName});
   toast('Notice posted!');loadNotices();
 }
-
+ 
 // ═══════════════════════════════════════
 // ADMIN
 // ═══════════════════════════════════════
@@ -1571,7 +1673,7 @@ function renderAdmin(){
     </div>
     <button class="btn btn-p" style="max-width:220px" onclick="addMember()">➕ Add Member</button>
   </div>
-
+ 
   <div class="agrd">
     <div class="card"><div class="ct">Season Management</div>
       <div class="aa"><span class="aa-l">AGM Reset — restore all club handicaps, clear season stats</span><button class="btn btn-d" onclick="agmReset()">AGM Reset</button></div>
@@ -1580,7 +1682,7 @@ function renderAdmin(){
     </div>
     <div class="card"><div class="ct">Honours Board</div><div id="honours-admin"></div></div>
   </div>
-
+ 
   <!-- EDIT MEMBER FORM (hidden until edit clicked) -->
   <div id="edit-member-form" style="display:none" class="card" style="margin-bottom:1.4rem;border-top:3px solid var(--goldl)">
     <div class="ct">✏️ Edit Member — <span id="edit-member-name-title"></span></div>
@@ -1598,14 +1700,14 @@ function renderAdmin(){
       <button class="btn btn-s" style="max-width:140px" onclick="document.getElementById('edit-member-form').style.display='none'">Cancel</button>
     </div>
   </div>
-
+ 
   <div class="card" style="margin-bottom:1.2rem">
     <div class="ct">All Members</div>
     <div id="all-members"><div class="empty">Loading…</div></div>
   </div>`;
   loadAllMembersAdmin();loadHonoursAdmin();
 }
-
+ 
 async function addMember(){
   const name=document.getElementById('new-name').value.trim();
   const hcp=parseFloat(document.getElementById('new-hcp').value);
@@ -1628,7 +1730,7 @@ async function addMember(){
   loadAllMembersAdmin();
   loadMembers();
 }
-
+ 
 function openEditMember(id,name,hcp,chcp,photo){
   document.getElementById('edit-member-form').style.display='block';
   document.getElementById('edit-member-id').value=id;
@@ -1639,7 +1741,7 @@ function openEditMember(id,name,hcp,chcp,photo){
   document.getElementById('edit-photo').value=photo||'';
   document.getElementById('edit-member-form').scrollIntoView({behavior:'smooth'});
 }
-
+ 
 async function saveMemberEdit(){
   const id=document.getElementById('edit-member-id').value;
   const name=document.getElementById('edit-name').value.trim();
@@ -1721,7 +1823,7 @@ async function saveHonour(key){
   await db.from('honours').upsert({key,value:v});
   toast('Honours updated!');loadHonours();
 }
-
+ 
 // ═══════════════════════════════════════
 // SCROLL REVEAL + NAV SCROLL
 // ═══════════════════════════════════════
@@ -1730,7 +1832,61 @@ document.querySelectorAll('.rev').forEach(el=>{
 });
 const topNav=document.querySelector('.tnav');
 window.addEventListener('scroll',()=>{topNav.style.background=window.scrollY>50?'rgba(2,7,4,.99)':'rgba(4,10,6,.97)';},{passive:true});
-
+ 
+ 
+// ── SEARCH ──
+function openSearch(){
+  document.getElementById('search-overlay').classList.add('open');
+  setTimeout(()=>document.getElementById('search-input').focus(),100);
+}
+function closeSearch(){
+  document.getElementById('search-overlay').classList.remove('open');
+  document.getElementById('search-input').value='';
+  document.getElementById('search-results').innerHTML='<div class="search-result-empty">Start typing to search…</div>';
+}
+async function doSearch(q){
+  const el=document.getElementById('search-results');
+  q=q.trim().toLowerCase();
+  if(!q||q.length<2){el.innerHTML='<div class="search-result-empty">Start typing to search…</div>';return;}
+ 
+  const pages=[
+    {name:'Home',icon:'🏠',page:'home',desc:'Main page & leaderboard'},
+    {name:'Sunday Draw',icon:'🎲',page:'draw',desc:'Sign up & view groups'},
+    {name:'Enter Scores',icon:'⛳',page:'scores',desc:'Submit your scorecard'},
+    {name:'Weekly Results',icon:'💰',page:'weekly',desc:'Positions, money & points'},
+    {name:'Results Archive',icon:'📊',page:'results',desc:'All past Sundays'},
+    {name:'Members',icon:'👥',page:'members',desc:'Society member profiles'},
+    {name:'Attendance',icon:'📅',page:'attendance',desc:'Who played each Sunday'},
+    {name:'Fines',icon:'💸',page:'fines',desc:'No-show fines ledger'},
+    {name:'Photos',icon:'📸',page:'photos',desc:'Society gallery'},
+    {name:'Notice Board',icon:'📋',page:'notice',desc:'Society announcements'},
+    {name:'Admin',icon:'⚙️',page:'admin',desc:'Manage members & settings'},
+  ];
+ 
+  let results=[];
+ 
+  // Match pages
+  pages.forEach(p=>{
+    if(p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q))
+      results.push({type:'page',...p});
+  });
+ 
+  // Match members from DB or demo
+  const{data:mem}=await db.from('members').select('name,handicap,rounds_played').eq('approved',true);
+  const members=mem?.length?mem:DEMO.members;
+  members.filter(m=>m.name.toLowerCase().includes(q)).forEach(m=>{
+    results.push({type:'member',name:m.name,icon:'👤',desc:`Hcp ${m.handicap?.toFixed(1)||'?'} · ${m.rounds_played||0} rounds`,page:'members'});
+  });
+ 
+  if(!results.length){el.innerHTML='<div class="search-result-empty">No results found for "'+q+'"</div>';return;}
+ 
+  el.innerHTML=results.slice(0,8).map(r=>`
+    <div class="search-result-item" onclick="go('${r.page}');closeSearch()">
+      <span class="search-result-icon">${r.icon}</span>
+      <div><div class="search-result-name">${r.name}</div><div class="search-result-sub">${r.desc}</div></div>
+    </div>`).join('');
+}
+ 
 // INIT
 updateNavAuth();
 loadHomeData();
