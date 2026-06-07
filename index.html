@@ -19,7 +19,7 @@
 html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
 body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--gd);color:var(--cream);overflow-x:hidden;min-height:100vh;padding-bottom:calc(var(--bot) + env(safe-area-inset-bottom,0px))}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--gd)}::-webkit-scrollbar-thumb{background:var(--gold)}
- 
+
 /* NAV */
 .tnav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0 1.2rem;height:var(--nav);background:rgba(4,10,6,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.18)}
 .tnav-logo{font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;cursor:pointer;white-space:nowrap}
@@ -52,7 +52,7 @@ body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--gd);color:v
 .drawer-auth-btn{width:100%;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:.78rem;border:1px solid var(--gold);color:var(--gold);background:transparent;cursor:pointer;transition:all .2s}
 .drawer-auth-btn:hover{background:var(--gold);color:var(--gd)}
 .drawer-user{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--goldp);font-style:italic;margin-bottom:.55rem;text-align:center}
- 
+
 /* BOTTOM NAV */
 .bnav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;height:calc(var(--bot) + env(safe-area-inset-bottom,0px));background:rgba(4,10,6,.99);border-top:1px solid rgba(201,168,76,.2);-webkit-backdrop-filter:blur(10px);padding-bottom:env(safe-area-inset-bottom,0px)}
 .bnav-inner{display:flex;height:100%;align-items:stretch;padding:0}
@@ -68,12 +68,12 @@ body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--gd);color:v
 .mmi:hover{background:rgba(201,168,76,.08)}
 .mmi-icon{font-size:1.2rem;width:1.5rem;text-align:center;flex-shrink:0}
 .mmi-lbl{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.14em;color:var(--goldp);text-transform:uppercase}
- 
+
 /* PAGES */
 .page{display:none;min-height:calc(100vh - var(--nav));padding-top:var(--nav);overflow-x:hidden;overflow-y:hidden}.page.active{overflow-y:auto}
 .page.active{display:block}
 #pg-home{padding-top:0}
- 
+
 /* HERO */
 .hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:4rem 1.5rem 5rem;text-align:center}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(45,110,71,.4) 0%,transparent 70%),linear-gradient(180deg,var(--gd) 0%,#112a1c 50%,#0a2010 100%);z-index:0}
@@ -90,12 +90,12 @@ body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--gd);color:v
 .h-stats{display:flex;gap:clamp(1.5rem,5vw,3rem);justify-content:center;opacity:0;animation:fu 1s 1.5s forwards}
 .s-num{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,6vw,2.5rem);font-weight:900;color:var(--gold);line-height:1}
 .s-lbl{font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:.17em;color:var(--goldp);text-transform:uppercase;margin-top:.2rem;opacity:.7}
-.scroll-hint{position:absolute;bottom:calc(var(--bot) + .8rem);left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.3rem;opacity:0;animation:fu 1s 2s forwards;z-index:1}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.3rem;opacity:0;animation:fu 1s 2s forwards;z-index:1}
 .scroll-hint span{font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:.28em;color:var(--gold);text-transform:uppercase}
 .sa{width:13px;height:13px;border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);transform:rotate(45deg);animation:bo 2s infinite}
 @keyframes bo{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
 @keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
- 
+
 /* LAYOUT */
 .sec{padding:clamp(2.5rem,5vw,5rem) clamp(1rem,4vw,2rem)}
 .con{max-width:1100px;margin:0 auto}
@@ -104,13 +104,13 @@ body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--gd);color:v
 .st{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.5rem);color:var(--w);font-weight:700}
 .sr{width:58px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto 0}
 .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.18),transparent);margin:.6rem 0}
- 
+
 /* CARDS */
 .card{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.15);padding:1.4rem;margin-bottom:1.1rem}
 .ct{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.85rem;padding-bottom:.52rem;border-bottom:1px solid rgba(201,168,76,.1)}
 .draw-step{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.14);padding:1.4rem;margin-bottom:1.1rem}
 .draw-step-title{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;padding-bottom:.52rem;border-bottom:1px solid rgba(201,168,76,.09)}
- 
+
 /* TABLES */
 .tw{overflow-x:auto;border:1px solid rgba(201,168,76,.15);-webkit-overflow-scrolling:touch}
 table{width:100%;border-collapse:collapse;min-width:340px}
@@ -123,14 +123,14 @@ tbody td{padding:.7rem .85rem;font-family:'Cormorant Garamond',serif;font-size:.
 tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child(3) .pc{color:#CD7F32}
 .nc{font-size:.93rem;font-weight:600;color:var(--w)}
 .ptc{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gold)}
- 
+
 /* BADGES */
 .bdg{display:inline-block;font-family:'Cinzel',serif;font-size:.46rem;letter-spacing:.09em;padding:.13rem .4rem;border:1px solid rgba(201,168,76,.3);color:var(--gold);background:rgba(201,168,76,.06)}
 .bdg-r{border-color:rgba(231,76,60,.35);color:var(--red);background:rgba(231,76,60,.06)}
 .bdg-g{border-color:rgba(46,204,113,.35);color:var(--grn);background:rgba(46,204,113,.06)}
 .bdg-o{border-color:rgba(255,165,0,.35);color:orange;background:rgba(255,165,0,.06)}
 .bdg-b{border-color:rgba(52,152,219,.35);color:#3498db;background:rgba(52,152,219,.06)}
- 
+
 /* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;letter-spacing:.17em;text-transform:uppercase;border:none;cursor:pointer;transition:all .22s;white-space:nowrap}
 .btn-p{background:var(--gold);color:var(--gd);font-size:.6rem;padding:.82rem 2rem}
@@ -146,7 +146,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .btn-g:hover{background:rgba(46,204,113,.08)}
 .btn-fw{width:100%}
 .btn-lg{font-size:.68rem;padding:.95rem 2.5rem}
- 
+
 /* FORMS */
 .fg{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.78rem}
 .fl{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.17em;color:var(--gold);text-transform:uppercase}
@@ -159,13 +159,13 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .fe.show{display:block}
 .fs-msg{font-family:'Cormorant Garamond',serif;font-size:.88rem;color:var(--grn);text-align:center;padding:.38rem;background:rgba(46,204,113,.07);border:1px solid rgba(46,204,113,.18);display:none;margin-top:.4rem}
 .fs-msg.show{display:block}
- 
+
 /* LB TABS */
 .lbt{display:flex;border:1px solid rgba(201,168,76,.18);margin-bottom:1.3rem;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .lbt-i{flex:1;font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:.09em;text-transform:uppercase;padding:.66rem .35rem;text-align:center;cursor:pointer;color:rgba(249,244,232,.42);border:none;background:transparent;transition:all .2s;white-space:nowrap;min-width:70px}
 .lbt-i.act{background:rgba(201,168,76,.11);color:var(--gold)}
 .lbp{display:none}.lbp.act{display:block}
- 
+
 /* HOME SECTIONS */
 .agrid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
 .at p{font-size:1.05rem;line-height:1.9;color:var(--goldp);margin-bottom:.85rem;font-weight:300}
@@ -196,7 +196,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .hi{font-size:1.5rem;margin-bottom:.55rem}
 .hr2{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.23em;color:var(--gold);text-transform:uppercase;margin-bottom:.32rem}
 .hn{font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;color:var(--w)}
- 
+
 /* MEMBERS */
 .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:1.1rem}
 .mcard{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.13);padding:1.3rem .85rem;text-align:center;transition:all .3s}
@@ -209,7 +209,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .msub{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:.09em;margin-top:.2rem;text-transform:uppercase}
 .att-bar-w{margin-top:.42rem;background:rgba(255,255,255,.06);height:4px;border-radius:2px;overflow:hidden}
 .att-bar{height:100%;background:var(--gold);border-radius:2px}
- 
+
 /* DRAW */
 .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:.5rem}
 .pchip{display:flex;align-items:center;gap:.45rem;padding:.5rem .7rem;border:1px solid rgba(201,168,76,.1);cursor:pointer;transition:all .2s;user-select:none;-webkit-user-select:none}
@@ -233,7 +233,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .spd-l{font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:.22rem}
 .spd-v{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--w)}
 .spd-s{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,244,232,.42);margin-top:.13rem}
- 
+
 /* WEEKLY MONEY + POSITIONS */
 .pos-card{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.14);padding:1.3rem;margin-bottom:.9rem}
 .pos-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid rgba(201,168,76,.09)}
@@ -250,7 +250,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .pot-info{background:rgba(46,204,113,.06);border:1px solid rgba(46,204,113,.2);padding:.9rem 1.1rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
 .pot-label{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.15em;color:rgba(249,244,232,.55);text-transform:uppercase}
 .pot-val{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--grn)}
- 
+
 /* ATTENDANCE */
 .att-sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:.9rem;margin-bottom:1.7rem}
 .att-s{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.14);padding:1.2rem;text-align:center}
@@ -264,7 +264,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .att-b{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--goldl))}
 .att-pct{font-family:'Playfair Display',serif;font-size:.93rem;font-weight:700;color:var(--gold);width:2.8rem;text-align:right;flex-shrink:0}
 .att-det{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:.09em;color:rgba(249,244,232,.38);text-transform:uppercase;width:3.5rem;text-align:right;flex-shrink:0}
- 
+
 /* SCORECARD */
 .scow{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .scg{display:grid;gap:.2rem;min-width:430px}
@@ -280,7 +280,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .sf-row:last-child .sf-v{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700}
 .sf-l{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.12em;color:rgba(249,244,232,.46);text-transform:uppercase}
 .sf-v{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--cream)}
- 
+
 /* FINES */
 .shame{background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.2);border-top:3px solid var(--red);padding:1.4rem;margin-bottom:1.4rem;text-align:center}
 .shame-t{font-family:'Cinzel',serif;font-size:.54rem;letter-spacing:.26em;color:var(--red);text-transform:uppercase;margin-bottom:.35rem}
@@ -293,7 +293,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .fine-d{font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.09em;color:rgba(249,244,232,.35);text-transform:uppercase;margin-top:.12rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .fine-right{display:flex;align-items:center;gap:.55rem;flex-shrink:0}
 .fine-a{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--red)}
- 
+
 /* PHOTOS */
 .pgall{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:.7rem}
 .pitem{position:relative;aspect-ratio:1;overflow:hidden;cursor:pointer;background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.11)}
@@ -312,7 +312,7 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .lbox img{max-width:100%;max-height:80vh;object-fit:contain}
 .lbox-cap{font-family:'Cormorant Garamond',serif;font-size:.93rem;color:rgba(249,244,232,.65);margin-top:.7rem;font-style:italic;text-align:center}
 .lbox-x{position:absolute;top:1rem;right:1rem;background:transparent;border:none;color:rgba(249,244,232,.55);font-size:1.4rem;cursor:pointer;padding:.35rem}
- 
+
 /* RESULTS */
 .rw{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.13);margin-bottom:.85rem;overflow:hidden}
 .rwh{display:flex;justify-content:space-between;align-items:center;padding:.92rem 1.1rem;cursor:pointer;transition:background .2s}
@@ -330,14 +330,14 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .rpn{font-family:'Cormorant Garamond',serif;font-size:.93rem;color:var(--w);font-weight:600}
 .rpp{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--gold)}
 .rpd{font-family:'Cinzel',serif;font-size:.44rem;letter-spacing:.07em;color:rgba(249,244,232,.42);text-transform:uppercase}
- 
+
 /* NOTICE */
 .ni{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.13);border-left:3px solid var(--gold);padding:1.2rem;margin-bottom:.82rem}
 .ni-d{font-family:'Cinzel',serif;font-size:.47rem;letter-spacing:.17em;color:var(--gold);text-transform:uppercase;margin-bottom:.26rem}
 .ni-t{font-family:'Playfair Display',serif;font-size:1.03rem;color:var(--w);margin-bottom:.26rem}
 .ni-b{font-family:'Cormorant Garamond',serif;font-size:.92rem;color:var(--goldp);line-height:1.7}
 .ni-a{font-family:'Cinzel',serif;font-size:.45rem;letter-spacing:.11em;color:rgba(249,244,232,.32);margin-top:.42rem;text-transform:uppercase}
- 
+
 /* MODAL */
 .mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:500;align-items:center;justify-content:center;backdrop-filter:blur(4px);padding:1rem}
 .mo.open{display:flex}
@@ -350,32 +350,32 @@ tr:nth-child(1) .pc{color:#FFD700}tr:nth-child(2) .pc{color:#C0C0C0}tr:nth-child
 .mtab.act{background:rgba(201,168,76,.11);color:var(--gold)}
 .mx{position:absolute;top:.7rem;right:.7rem;background:transparent;border:none;color:rgba(249,244,232,.32);cursor:pointer;font-size:1.05rem;padding:.28rem;transition:color .2s}
 .mx:hover{color:var(--gold)}
- 
+
 /* ADMIN */
 .agrd{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:1.2rem;margin-bottom:1.2rem}
 .aa{display:flex;align-items:center;justify-content:space-between;padding:.56rem 0;border-bottom:1px solid rgba(255,255,255,.03);gap:.4rem}
 .aa:last-child{border-bottom:none}
 .aa-l{font-family:'Cormorant Garamond',serif;font-size:.93rem;color:var(--goldp);flex:1}
- 
+
 /* PROTECTED */
 .prot{text-align:center;padding:clamp(2rem,5vw,4rem) 1.4rem}
 .prot h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--w);margin-bottom:.72rem}
 .prot p{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--goldp);margin-bottom:1.5rem;font-style:italic}
- 
+
 /* TOAST */
 .toast{position:fixed;bottom:1.5rem;right:.85rem;left:.85rem;max-width:330px;margin:0 auto;background:#0f2d1c;border:1px solid rgba(201,168,76,.26);border-left:3px solid var(--gold);padding:.8rem 1.1rem;font-family:'Cormorant Garamond',serif;font-size:.92rem;color:var(--cream);z-index:400;transform:translateY(200%);transition:transform .35s}
 .toast.show{transform:translateY(0)}
 .toast.err{border-left-color:var(--red)}
- 
+
 /* FOOTER */
 footer{background:#040a06;border-top:1px solid rgba(201,168,76,.09);padding:1.5rem;text-align:center}
 .fl2{font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.26em;color:var(--gold);text-transform:uppercase;margin-bottom:.3rem}
 footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,244,232,.2)}
- 
+
 /* REVEAL */
 .rev{opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}
 .rev.vis{opacity:1;transform:none}
- 
+
 /* RESPONSIVE */
 @media(max-width:768px){
   :root{--nav:52px}
@@ -401,7 +401,7 @@ footer p{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(249,
   .att-pct{width:2.6rem}
   .rpgrid{grid-template-columns:1fr 1fr}
 }
- 
+
 /* Search overlay */
 .search-overlay{display:none;position:fixed;inset:0;background:rgba(4,10,6,.97);z-index:600;align-items:flex-start;justify-content:center;padding-top:calc(var(--nav) + 1.5rem);padding-left:1rem;padding-right:1rem}
 .search-overlay.open{display:flex;flex-direction:column}
@@ -423,7 +423,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
 </style>
 </head>
 <body>
- 
+
 <!-- TOP NAV -->
 <nav class="tnav">
   <div class="tnav-logo" onclick="go('home')">Carnalea Nomads</div>
@@ -450,7 +450,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
     </button>
   </div>
 </nav>
- 
+
 <!-- SIDE DRAWER (mobile) -->
 <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
 <div class="drawer" id="drawer">
@@ -475,8 +475,8 @@ input[type=search]::-webkit-search-decoration { display:none; }
     <button class="drawer-auth-btn" onclick="drawerAuth();closeDrawer()">🔐 Edit Mode</button>
   </div>
 </div>
- 
- 
+
+
 <!-- ═══════════ HOME ═══════════ -->
 <div id="pg-home" class="page active">
   <div class="hero">
@@ -495,7 +495,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
     </div>
     <div class="scroll-hint"><span>Discover</span><div class="sa"></div></div>
   </div>
- 
+
   <!-- This Sunday -->
   <div class="sec" style="background:#0a2010;padding:2.2rem clamp(.9rem,4vw,2rem)">
     <div class="con">
@@ -507,7 +507,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
       <div id="home-sun"><div class="empty">Loading…</div></div>
     </div>
   </div>
- 
+
   <!-- About -->
   <div class="sec" style="background:#0f2d1c">
     <div class="con">
@@ -525,7 +525,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
       </div>
     </div>
   </div>
- 
+
   <!-- How it works -->
   <div class="sec" style="background:#091f12">
     <div class="con">
@@ -554,7 +554,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
         <div class="card" style="text-align:center;border-top:3px solid var(--red)">
           <div style="font-size:1.8rem;margin-bottom:.6rem">💸</div>
           <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;color:var(--red);text-transform:uppercase;margin-bottom:.5rem">Fines</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:.97rem;color:var(--goldp);line-height:1.7">No-show = £2 fine<br/>Most fines buys<br/>Christmas drinks 🍺</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:.97rem;color:var(--goldp);line-height:1.7">No-show = £2 fine<br/>Most fines buys<br/>first round at Christmas 🍺</div>
         </div>
         <div class="card" style="text-align:center;border-top:3px solid var(--gold)">
           <div style="font-size:1.8rem;margin-bottom:.6rem">🔄</div>
@@ -564,7 +564,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
       </div>
     </div>
   </div>
- 
+
   <!-- Leaderboards -->
   <div class="sec" style="background:var(--gd)">
     <div class="con">
@@ -583,7 +583,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
       <div id="lb-fines" class="lbp"><div id="fin-lb" class="empty">Loading…</div></div>
     </div>
   </div>
- 
+
   <!-- Away Days -->
   <div class="sec" style="background:#0b2416">
     <div class="con">
@@ -594,14 +594,14 @@ input[type=search]::-webkit-search-decoration { display:none; }
       </div>
     </div>
   </div>
- 
+
   <!-- Honours -->
   <div class="sec" style="background:var(--gd)">
     <div class="con">
       <div class="sh rev"><span class="sl">Roll of Honour</span><h2 class="st">Honours Board</h2><div class="sr"></div></div>
       <div class="hgrid rev">
-        <div class="hcard"><div class="hi">👑</div><div class="hr2">Captain 2025</div><div class="hn" id="h-captain">—</div></div>
-        <div class="hcard"><div class="hi">🏅</div><div class="hr2">President 2025</div><div class="hn" id="h-president">—</div></div>
+        <div class="hcard"><div class="hi">👑</div><div class="hr2">Captain 2026</div><div class="hn" id="h-captain">—</div></div>
+        <div class="hcard"><div class="hi">🏅</div><div class="hr2">President 2026</div><div class="hn" id="h-president">—</div></div>
         <div class="hcard"><div class="hi">🏆</div><div class="hr2">Season Champion</div><div class="hn" id="h-champion">—</div></div>
         <div class="hcard"><div class="hi">⭐</div><div class="hr2">Best Newcomer</div><div class="hn" id="h-newcomer">—</div></div>
         <div class="hcard"><div class="hi">📅</div><div class="hr2">Best Attendance</div><div class="hn" id="h-attendance">—</div></div>
@@ -612,13 +612,13 @@ input[type=search]::-webkit-search-decoration { display:none; }
       </div>
     </div>
   </div>
- 
+
   <footer>
     <div class="fl2">Carnalea Nomads Golf Society</div>
-    <p>Carnalea Golf Club · Bangor, Co. Down · Northern Ireland · © 2025</p>
+    <p>Carnalea Golf Club · Bangor, Co. Down · Northern Ireland · © 2026</p>
   </footer>
 </div>
- 
+
 <!-- ═══════════ DRAW ═══════════ -->
 <div id="pg-draw" class="page">
   <div class="sec"><div class="con" style="max-width:860px">
@@ -626,7 +626,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
     <div id="draw-con"><div class="empty">Loading…</div></div>
   </div></div>
 </div>
- 
+
 <!-- ═══════════ MEMBERS ═══════════ -->
 <div id="pg-members" class="page">
   <div class="sec"><div class="con">
@@ -634,17 +634,17 @@ input[type=search]::-webkit-search-decoration { display:none; }
     <div id="mem-grid" class="mgrid"><div class="empty">Loading…</div></div>
   </div></div>
 </div>
- 
+
 <!-- ═══════════ ATTENDANCE ═══════════ -->
 <div id="pg-attendance" class="page">
   <div class="sec"><div class="con">
     <div class="sh"><span class="sl">Season Tracker</span><h2 class="st">Attendance</h2><div class="sr"></div></div>
     <div id="att-sum" class="att-sum"></div>
-    <div class="card"><div class="ct">Member Attendance — Season 2025</div><div id="att-list"><div class="empty">Loading…</div></div></div>
+    <div class="card"><div class="ct">Member Attendance — Season 2026</div><div id="att-list"><div class="empty">Loading…</div></div></div>
     <div class="card"><div class="ct">Sunday by Sunday</div><div id="att-weekly"><div class="empty">Loading…</div></div></div>
   </div></div>
 </div>
- 
+
 <!-- ═══════════ SCORES ═══════════ -->
 <div id="pg-scores" class="page" style="background:#0b2416">
   <div class="sec"><div class="con">
@@ -652,7 +652,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
     <div id="scores-con"></div>
   </div></div>
 </div>
- 
+
 <!-- ═══════════ WEEKLY RESULTS ═══════════ -->
 <div id="pg-weekly" class="page">
   <div class="sec"><div class="con">
@@ -661,7 +661,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
     <div id="weekly-con"><div class="empty">Loading…</div></div>
   </div></div>
 </div>
- 
+
 <!-- ═══════════ RESULTS ARCHIVE ═══════════ -->
 <div id="pg-results" class="page">
   <div class="sec"><div class="con">
@@ -669,7 +669,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
     <div id="results-con"><div class="empty">Loading…</div></div>
   </div></div>
 </div>
- 
+
 <!-- ═══════════ FINES ═══════════ -->
 <div id="pg-fines" class="page">
   <div class="sec"><div class="con">
@@ -677,7 +677,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
     <div id="fines-con"><div class="empty">Loading…</div></div>
   </div></div>
 </div>
- 
+
 <!-- ═══════════ PHOTOS ═══════════ -->
 <div id="pg-photos" class="page" style="background:#0a1f11">
   <div class="sec"><div class="con">
@@ -685,7 +685,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
     <div id="photos-con"><div class="empty">Loading…</div></div>
   </div></div>
 </div>
- 
+
 <!-- ═══════════ NOTICE BOARD ═══════════ -->
 <div id="pg-notice" class="page" style="background:#0f2d1c">
   <div class="sec"><div class="con">
@@ -694,7 +694,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
     <div id="notice-list"><div class="empty">Loading…</div></div>
   </div></div>
 </div>
- 
+
 <!-- ═══════════ ADMIN ═══════════ -->
 <div id="pg-admin" class="page" style="background:#070f0a">
   <div class="sec"><div class="con">
@@ -702,7 +702,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
     <div id="admin-con"></div>
   </div></div>
 </div>
- 
+
 <!-- SEARCH OVERLAY -->
 <div class="search-overlay" id="search-overlay">
   <div class="search-box">
@@ -714,7 +714,7 @@ input[type=search]::-webkit-search-decoration { display:none; }
     <div class="search-result-empty">Start typing to search…</div>
   </div>
 </div>
- 
+
 <!-- PASSWORD MODAL -->
 <div class="mo" id="modal-overlay">
   <div class="modal">
@@ -727,22 +727,22 @@ input[type=search]::-webkit-search-decoration { display:none; }
     <button class="btn btn-p btn-fw" style="margin-top:.5rem" onclick="doLogin()">Enter</button>
   </div>
 </div>
- 
+
 <!-- LIGHTBOX -->
 <div class="lbox" id="lbox" onclick="closeLb()">
   <button class="lbox-x" onclick="closeLb()">✕</button>
   <img id="lbox-img" src="" alt=""/>
   <div class="lbox-cap" id="lbox-cap"></div>
 </div>
- 
+
 <div class="toast" id="toast"></div>
- 
+
 <script>
 const SUPABASE_URL='https://haznqiplngyklhyladiw.supabase.co';
 const SUPABASE_ANON_KEY='sb_publishable_eoIxKWBSHGKE4d2fbLFa5w_mn2h-iVA';
 const{createClient}=supabase;
 const db=createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
- 
+
 // Carnalea Golf Club course data
 const COURSE={
   par:[4,3,4,4,5,3,4,4,4,4,4,3,4,5,3,4,4,4],
@@ -750,28 +750,28 @@ const COURSE={
   par3s:[1,5,11,14],   // 0-based hole indices
   par45s:[0,2,3,4,6,7,8,9,10,12,13,15,16,17]
 };
- 
+
 // Position points for handicap cuts & merit
 // 1st=5pts, 2nd=3pts, 3rd=1pt — accumulate to 7 for 1 shot cut
 // 4th = 1 merit point (separate tracker)
 const POS_POINTS={1:5, 2:3, 3:1};
 const MERIT_POS=4;
 const CUT_THRESHOLD=7;
- 
+
 // Money split
 const MONEY_SPLIT={1:0.60, 2:0.30, 3:0.10};
- 
+
 // ── SIMPLE PASSWORD AUTH ──
 // Change this password to whatever you want the lads to use!
 const SOCIETY_PASSWORD = 'nomads2025';
 let isLoggedIn = sessionStorage.getItem('nomads_auth') === 'true';
 let currentName = sessionStorage.getItem('nomads_name') || '';
 let AM = [];
- 
+
 // These make all the existing CU/CM checks work seamlessly
 Object.defineProperty(window,'CU',{get:()=>isLoggedIn,configurable:true});
 Object.defineProperty(window,'CM',{get:()=>isLoggedIn?{name:currentName,role:'admin',approved:true,id:'local'}:null,configurable:true});
- 
+
 function toast(msg,err=false){
   const t=document.getElementById('toast');
   t.textContent=msg;t.className='toast show'+(err?' err':'');
@@ -789,7 +789,7 @@ function closeDrawer(){document.getElementById('drawer').classList.remove('open'
 function drawerAuth(){if(isLoggedIn)doLogout();else openModal();}
 function toggleMore(){openDrawer();}
 function closeMore(){closeDrawer();}
- 
+
 function swLb(t,btn){
   document.querySelectorAll('.lbt-i').forEach(x=>x.classList.remove('act'));
   btn.classList.add('act');
@@ -807,7 +807,7 @@ function rand(a){return a[Math.floor(Math.random()*a.length)];}
 function openLb(src,cap){document.getElementById('lbox-img').src=src;document.getElementById('lbox-cap').textContent=cap||'';document.getElementById('lbox').classList.add('open');}
 function closeLb(){document.getElementById('lbox').classList.remove('open');}
 function fmtMoney(n){return'£'+parseFloat(n).toFixed(2);}
- 
+
 // ═══════════════════════════════════════
 // NAVIGATION
 // ═══════════════════════════════════════
@@ -816,7 +816,7 @@ function go(page){
   document.getElementById('pg-'+page).classList.add('active');
   document.querySelectorAll('.tnav-links a').forEach(a=>a.classList.remove('act'));
   const da=document.getElementById('dn-'+page);if(da)da.classList.add('act');
- 
+
   window.scrollTo(0,0);closeMore();
   const loaders={
     members:loadMembers,scores:renderScores,results:loadResults,
@@ -826,7 +826,7 @@ function go(page){
   };
   if(loaders[page])loaders[page]();
 }
- 
+
 // ═══════════════════════════════════════
 // AUTH
 // ═══════════════════════════════════════
@@ -867,7 +867,7 @@ function updateNavAuth(){
     if(df)df.innerHTML=`<button class="drawer-auth-btn" onclick="openModal();closeDrawer()">🔐 Edit Mode</button>`;
   }
 }
- 
+
 // ═══════════════════════════════════════
 // HOME DATA
 // ═══════════════════════════════════════
@@ -886,19 +886,28 @@ const DEMO={
   sunday:[
     {member_name:'Nathan McCabe',stableford_total:38,stableford_front:19,stableford_back:19,pos:1},
     {member_name:'Conor Walsh',stableford_total:36,stableford_front:18,stableford_back:18,pos:2},
-    {member_name:'Paddy O\'Brien',stableford_total:34,stableford_front:16,stableford_back:18,pos:3},
+    {member_name:"Paddy O'Brien",stableford_total:34,stableford_front:16,stableford_back:18,pos:3},
     {member_name:'Declan Hughes',stableford_total:32,stableford_front:15,stableford_back:17,pos:4},
     {member_name:'Rory McAllister',stableford_total:30,stableford_front:14,stableford_back:16,pos:5},
-  ]
+  ],
+  draw:{
+    draw_date:'2026-06-07',ctp_hole:6,ld_hole:14,ctp_winner:null,ld_winner:null,player_count:14,
+    groups:[
+      [{name:'Nathan McCabe',handicap:12.4},{name:"Paddy O'Brien",handicap:16.1},{name:'Conor Walsh',handicap:9.8},{name:'Declan Hughes',handicap:21.0}],
+      [{name:'Rory McAllister',handicap:18.5},{name:'Eamonn Doherty',handicap:14.2},{name:'Sean Fitzpatrick',handicap:24.6},{name:'Gary Thompson',handicap:11.3}],
+      [{name:'Michael Bradley',handicap:19.2},{name:'Ciaran Murphy',handicap:8.6},{name:'Brendan Kelly',handicap:22.4},{name:'Aidan McNeill',handicap:15.7}],
+      [{name:'Dermot Quinn',handicap:28.0},{name:'Paul Donnelly',handicap:13.5}]
+    ]
+  }
 };
- 
+
 async function loadHomeData(){
   const{count}=await db.from('members').select('*',{count:'exact',head:true}).eq('approved',true);
   const el=document.getElementById('stat-mem');
   if(el)el.textContent=(count&&count>0)?count:DEMO.members.length;
   loadHomeSun();loadSunLb();loadSeaLb();loadHonours();
 }
- 
+
 async function loadHomeSun(){
   const ds=getSun(),el=document.getElementById('home-sun');if(!el)return;
   let draw=null;
@@ -913,18 +922,22 @@ async function loadHomeSun(){
       </div>
     </div>`;
   } else {
+    // Show demo draw on home page
+    const dd=DEMO.draw;
     el.innerHTML=`<div class="sbox">
-      <div class="sbox-t">⛳ This Sunday — ${fmt(ds)}</div>
-      <div class="sprow" style="margin-bottom:1rem">
-        <div class="spc"><div class="spc-i">🎯</div><span class="spc-l">Closest to Pin</span><div class="spc-v">Hole 6</div><div class="spc-s">Par 3 · Sign up to play</div></div>
-        <div class="spc"><div class="spc-i">💨</div><span class="spc-l">Longest Drive</span><div class="spc-v">Hole 14</div><div class="spc-s">Par 5 · Sign up to play</div></div>
+      <div class="sbox-t">⛳ Example Draw — ${fmt(ds)} · ${dd.player_count} players</div>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:.8rem">
+        <button class="btn btn-s" style="font-size:.55rem;padding:.52rem 1.1rem" onclick="go('draw')">View Full Draw →</button>
+        <span style="font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:.1em;color:rgba(249,244,232,.35);text-transform:uppercase;display:flex;align-items:center">📋 Example</span>
       </div>
-      <p style="font-family:'Cormorant Garamond',serif;font-size:.93rem;color:rgba(249,244,232,.55);font-style:italic;margin-bottom:.9rem">🔐 Enter edit mode to sign up for Sunday</p>
-      <button class="btn btn-s" style="font-size:.55rem;padding:.56rem 1.2rem" onclick="go('draw')">Go to Draw →</button>
+      <div class="sprow">
+        <div class="spc"><div class="spc-i">🎯</div><span class="spc-l">Closest to Pin</span><div class="spc-v">Hole ${dd.ctp_hole}</div><div class="spc-s">Par 3 · Winner TBC</div></div>
+        <div class="spc"><div class="spc-i">💨</div><span class="spc-l">Longest Drive</span><div class="spc-v">Hole ${dd.ld_hole}</div><div class="spc-s">Par 5 · Winner TBC</div></div>
+      </div>
     </div>`;
   }
 }
- 
+
 async function loadSunLb(){
   const{data}=await db.from('rounds')
     .select('member_name,stableford_total,stableford_front,stableford_back')
@@ -942,7 +955,7 @@ async function loadSunLb(){
   if(isDemo)h+=`<p style="text-align:center;margin-top:.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(249,244,232,.3)">📋 Example data — real scores will appear here each Sunday</p>`;
   document.getElementById('sun-lb').innerHTML=h;
 }
- 
+
 async function loadSeaLb(){
   const{data}=await db.from('members')
     .select('name,handicap,cuts,pos_points,merit_points,season_points,rounds_played,total_winnings')
@@ -963,7 +976,7 @@ async function loadSeaLb(){
   if(isDemo)h+=`<p style="text-align:center;margin-top:.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(249,244,232,.3)">📋 Example data — add your members in Admin to get started</p>`;
   document.getElementById('sea-lb').innerHTML=h;
 }
- 
+
 async function loadAttLb(){
   const{data:s}=await db.from('rounds').select('round_date');
   const total=Math.max([...new Set((s||[]).map(r=>r.round_date))].length,1);
@@ -977,35 +990,46 @@ async function loadAttLb(){
   if(isDemo)h+=`<p style="text-align:center;margin-top:.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(249,244,232,.3)">📋 Example data</p>`;
   document.getElementById('att-lb').innerHTML=h;
 }
- 
+
 async function loadFinLb(){
-  const{data}=await db.from('members').select('name,fines_total,fines_paid').eq('approved',true).order('fines_total',{ascending:false});
-  const hasFines=data?.some(m=>m.fines_total>0);
-  const rows=hasFines?data.filter(m=>m.fines_total>0):DEMO.members.filter(m=>m.fines_total>0);
+  const{data}=await db.from('members').select('name,fines_total,fines_paid').eq('approved',true);
+  const hasFines=data?.some(m=>(m.fines_total||0)>0);
+  // Sort by most fines descending
+  const allRows=data?.length?[...data].sort((a,b)=>(b.fines_total||0)-(a.fines_total||0)):
+    [...DEMO.members].sort((a,b)=>(b.fines_total||0)-(a.fines_total||0));
+  const rows=hasFines?allRows.filter(m=>(m.fines_total||0)>0):allRows.filter(m=>(m.fines_total||0)>0);
   const isDemo=!hasFines;
-  let h=`<div class="tw"><table><thead><tr><th>Pos</th><th>Member</th><th>Fines</th><th>Owed</th></tr></thead><tbody>`;
+  let h=`<div class="tw"><table><thead><tr><th>Pos</th><th>Member</th><th>Total Fines</th><th>Still Owed</th></tr></thead><tbody>`;
+  if(!rows.length){h+=`<tr><td colspan="4" class="empty" style="padding:1.5rem">No fines yet 🎉</td></tr>`;}
   rows.forEach((m,i)=>{
     const owed=(m.fines_total||0)-(m.fines_paid||0);
     h+=`<tr><td class="pc">${i===0?'🍺':i+1}</td><td class="nc">${m.name}</td>
-    <td><span class="bdg-o">${fmtMoney(m.fines_total)}</span></td>
+    <td><span class="bdg-o">${fmtMoney(m.fines_total||0)}</span></td>
     <td>${owed>0?`<span class="bdg-r">${fmtMoney(owed)}</span>`:'<span class="bdg-g">Clear</span>'}</td></tr>`;});
-  h+='</tbody></table></div><p style="text-align:center;margin-top:.7rem;font-family:Cormorant Garamond,serif;font-style:italic;font-size:.88rem;color:rgba(249,244,232,.35)">🍺 Top of this board buys everyone a drink at Christmas!</p>';
+  h+='</tbody></table></div><p style="text-align:center;margin-top:.7rem;font-family:Cormorant Garamond,serif;font-style:italic;font-size:.88rem;color:rgba(249,244,232,.35)">🍺 Top of this board buys the first round at Christmas dinner! 🎄</p>';
   if(isDemo)h+=`<p style="text-align:center;margin-top:.4rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(249,244,232,.3)">📋 Example data</p>`;
   document.getElementById('fin-lb').innerHTML=h;
 }
- 
+
 async function loadMeritLb(){
   const{data}=await db.from('members').select('name,merit_points').eq('approved',true).order('merit_points',{ascending:false});
-  const rows=data?.length?data:DEMO.members;
+  const raw=data?.length?data:DEMO.members;
   const isDemo=!data?.length;
-  let h=`<div class="tw"><table><thead><tr><th>Pos</th><th>Member</th><th>Merit Points</th></tr></thead><tbody>`;
-  rows.filter(m=>(m.merit_points||0)>0).forEach((m,i)=>h+=`<tr><td class="pc">${i+1}</td><td class="nc">${m.name}</td><td class="ptc">${m.merit_points}</td></tr>`);
-  if(rows.every(m=>!m.merit_points)){h+='<tr><td colspan="3" class="empty" style="padding:1.5rem">No merit points yet</td></tr>';}
+  // Sort by merit descending
+  const rows=[...raw].sort((a,b)=>(b.merit_points||0)-(a.merit_points||0));
+  let h=`<div class="tw"><table><thead><tr><th>Pos</th><th>Member</th><th>Merit Pts</th></tr></thead><tbody>`;
+  let pos=0;
+  rows.forEach(m=>{
+    if((m.merit_points||0)===0&&!isDemo)return;
+    pos++;
+    h+=`<tr><td class="pc">${pos}</td><td class="nc">${m.name}</td><td class="ptc">${m.merit_points||0}</td></tr>`;
+  });
+  if(pos===0)h+=`<tr><td colspan="3" class="empty" style="padding:1.5rem">No merit points yet</td></tr>`;
   h+='</tbody></table></div>';
   if(isDemo)h+=`<p style="text-align:center;margin-top:.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(249,244,232,.3)">📋 Example data</p>`;
   document.getElementById('merit-lb').innerHTML=h;
 }
- 
+
 async function loadHonours(){
   let d=[];
   try{const r=await db.from('honours').select('*');d=r.data||[];}catch(e){}
@@ -1026,7 +1050,7 @@ async function loadHonours(){
   const cap=document.getElementById('h-captain');if(cap&&cap.textContent==='—')cap.textContent='TBC 2025';
   const pres=document.getElementById('h-president');if(pres&&pres.textContent==='—')pres.textContent='TBC 2025';
 }
- 
+
 // ═══════════════════════════════════════
 // RANKING — back 9 tiebreak for all positions
 // ═══════════════════════════════════════
@@ -1038,17 +1062,17 @@ function rankPlayers(players){
   });
   return sorted.map((p,i)=>({...p,pos:i+1}));
 }
- 
+
 function calcPot(playerCount){
   return playerCount*2;
 }
- 
+
 function calcWinnings(pot,pos){
   const split=MONEY_SPLIT[pos];
   if(!split)return 0;
   return Math.round(pot*split*100)/100;
 }
- 
+
 // ═══════════════════════════════════════
 // DRAW
 // ═══════════════════════════════════════
@@ -1060,46 +1084,97 @@ async function renderDraw(){
   const{data:signups}=await db.from('draw_signups').select('*').eq('draw_date',ds).order('signed_up_at');
   const sl=signups||[];
   const userIn=isLoggedIn?sl.some(s=>s.member_name===currentName):false;
- 
+
   let html=`<div style="text-align:center;margin-bottom:1.4rem">
     <div style="font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.26em;color:var(--gold);text-transform:uppercase">${fmt(ds)}</div>
     <div style="font-family:'Cormorant Garamond',serif;font-size:.92rem;color:rgba(249,244,232,.42);font-style:italic;margin-top:.28rem">${sl.length} player${sl.length!==1?'s':''} signed up</div>
   </div>`;
- 
+
   if(isLoggedIn){
     if(!userIn)html+=`<div style="text-align:center;margin-bottom:1.3rem"><button class="btn btn-p btn-lg" onclick="signUp()">✅ Sign Up for This Sunday</button></div>`;
     else html+=`<div style="text-align:center;margin-bottom:1.3rem"><div style="font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.16em;color:var(--grn);margin-bottom:.6rem;text-transform:uppercase">✓ You're signed up!</div><button class="btn btn-s" style="font-size:.54rem;padding:.56rem 1.3rem" onclick="withdraw()">Withdraw</button></div>`;
   } else if(!CU){
     html+=`<div style="text-align:center;margin-bottom:1.3rem"><p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(249,244,232,.42);margin-bottom:.7rem">Login to sign up for Sunday</p><button class="btn btn-s" onclick="openModal()">Member Login</button></div>`;
   }
- 
+
   html+=`<div class="draw-step"><div class="draw-step-title">Players Signed Up (${sl.length})</div>
     <div class="pgrid">${sl.length===0?'<div style="color:rgba(249,244,232,.35);font-style:italic">No sign-ups yet</div>':
       sl.map(s=>`<div class="pchip sel"><span class="pcn">✓ ${s.member_name}</span><span class="pch">${s.handicap?.toFixed(1)||'?'}</span></div>`).join('')}
     </div>
   </div>`;
- 
+
   if(draw?.groups)html+=renderDrawResult(draw);
   else if(isLoggedIn&&sl.length>=3)html+=`<div style="text-align:center;margin-top:1.3rem"><button class="btn btn-p btn-lg" onclick="genDraw()">🎲 Generate Draw</button></div>`;
   else if(isLoggedIn)html+=`<div class="empty">Need at least 3 players signed up to generate the draw</div>`;
- 
-  if(draw&&isLoggedIn){
-    html+=`<div class="draw-step" style="margin-top:1rem">
-      <div class="draw-step-title">Enter Special Winners</div>
-      <div class="fr">
-        <div class="fg"><label class="fl">CTP — Hole ${draw.ctp_hole}</label><input class="fi" id="ctp-w" value="${draw.ctp_winner||''}" placeholder="Member name"/></div>
-        <div class="fg"><label class="fl">Longest Drive — Hole ${draw.ld_hole}</label><input class="fi" id="ld-w" value="${draw.ld_winner||''}" placeholder="Member name"/></div>
+  // Show demo draw if no real draw
+  if(!draw){
+    const dd=DEMO.draw;
+    html+=`<div style="margin-top:1.2rem">
+      <div style="font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.2em;color:rgba(249,244,232,.35);text-transform:uppercase;text-align:center;margin-bottom:.8rem;padding:.4rem;background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.1)">📋 Example draw — 14 players across 3 four-balls and 1 two-ball</div>
+      <div class="ggrid">
+        ${dd.groups.map((g,i)=>`<div class="gcard" style="opacity:.75">
+          <div class="ghead">Group ${i+1} <span class="bdg">${g.length}-Ball</span></div>
+          ${g.map(p=>`<div class="gplayer"><span class="gplayer-n">${p.name}</span><span class="gplayer-h">Hcp ${p.handicap?.toFixed(1)}</span></div>`).join('')}
+        </div>`).join('')}
       </div>
-      <button class="btn btn-sm" onclick="saveSpecials('${draw.draw_date}')">Save Winners</button>
-    </div>
-    <div style="display:flex;gap:.7rem;margin-top:.8rem;flex-wrap:wrap">
-      <button class="btn btn-s" style="font-size:.55rem;padding:.58rem 1.2rem" onclick="genDraw(true)">🎲 Regenerate Draw</button>
-      <button class="btn btn-d" style="padding:.48rem .92rem" onclick="clearDraw()">Clear Draw</button>
+      <div class="spgrid" style="margin-top:1rem">
+        <div class="spd"><div class="spd-i">🎯</div><span class="spd-l">Closest to Pin</span><div class="spd-v">Hole ${dd.ctp_hole}</div><div class="spd-s">Par 3 · Randomly selected</div></div>
+        <div class="spd"><div class="spd-i">💨</div><span class="spd-l">Longest Drive</span><div class="spd-v">Hole ${dd.ld_hole}</div><div class="spd-s">Par 5 · Randomly selected</div></div>
+      </div>
+    </div>`;
+  }
+
+  if(draw&&isLoggedIn){
+    const memberOpts=(AM.length?AM:DEMO.members).map(m=>`<option value="${m.name}">`).join('');
+    html+=`<div class="draw-step" style="margin-top:1rem">
+      <div class="draw-step-title">⚙️ Admin Controls</div>
+      
+      <div style="margin-bottom:1.2rem">
+        <div style="font-family:'Cinzel',serif;font-size:.54rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:.5rem">🎯 Special Competition Holes</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:.88rem;color:rgba(249,244,232,.5);font-style:italic;margin-bottom:.8rem">
+          Closest to Pin drawn on <strong style="color:var(--gold)">Hole ${draw.ctp_hole}</strong> (Par 3) &nbsp;·&nbsp;
+          Longest Drive drawn on <strong style="color:var(--gold)">Hole ${draw.ld_hole}</strong> (Par ${COURSE.par[draw.ld_hole-1]})
+        </p>
+        <div class="fr">
+          <div class="fg"><label class="fl">🎯 CTP Winner — Hole ${draw.ctp_hole}</label>
+            <input class="fi" id="ctp-w" value="${draw.ctp_winner||''}" placeholder="Type winner name…" list="ctp-dl"/>
+            <datalist id="ctp-dl">${memberOpts}</datalist>
+          </div>
+          <div class="fg"><label class="fl">💨 Longest Drive Winner — Hole ${draw.ld_hole}</label>
+            <input class="fi" id="ld-w" value="${draw.ld_winner||''}" placeholder="Type winner name…" list="ld-dl"/>
+            <datalist id="ld-dl">${memberOpts}</datalist>
+          </div>
+        </div>
+        <button class="btn btn-sm" onclick="saveSpecials('${draw.draw_date}')">💾 Save Winners</button>
+      </div>
+
+      <div style="border-top:1px solid rgba(201,168,76,.1);padding-top:1rem;margin-bottom:1rem">
+        <div style="font-family:'Cinzel',serif;font-size:.54rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:.5rem">➕ Add Player to Draw Manually</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:.88rem;color:rgba(249,244,232,.5);font-style:italic;margin-bottom:.8rem">Add someone who joined late or was missed from the draw</p>
+        <div class="fr">
+          <div class="fg"><label class="fl">Member Name</label>
+            <input class="fi" id="manual-player" placeholder="Type name…" list="manual-dl"/>
+            <datalist id="manual-dl">${memberOpts}</datalist>
+          </div>
+          <div class="fg"><label class="fl">Add to Group</label>
+            <select class="fi" id="manual-group">
+              ${draw.groups.map((g,i)=>`<option value="${i}">Group ${i+1} — ${g.map(p=>p.name.split(' ')[0]).join(', ')}</option>`).join('')}
+              <option value="new">➕ Create New Group</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-sm" onclick="addPlayerToDraw('${draw.draw_date}')">➕ Add Player</button>
+      </div>
+
+      <div style="display:flex;gap:.7rem;flex-wrap:wrap">
+        <button class="btn btn-s" style="font-size:.55rem;padding:.58rem 1.2rem" onclick="genDraw(true)">🎲 Regenerate Draw</button>
+        <button class="btn btn-d" style="padding:.48rem .92rem" onclick="clearDraw()">Clear Draw</button>
+      </div>
     </div>`;
   }
   el.innerHTML=html;
 }
- 
+
 function renderDrawResult(draw){
   return`<div class="dr">
     <div class="dr-t">🎲 Official Draw — ${fmt(draw.draw_date)}</div>
@@ -1113,11 +1188,30 @@ function renderDrawResult(draw){
     </div>
   </div>`;
 }
- 
+
 async function saveSpecials(ds){
   const ctp=document.getElementById('ctp-w')?.value.trim(),ld=document.getElementById('ld-w')?.value.trim();
   await db.from('sunday_draws').update({ctp_winner:ctp||null,ld_winner:ld||null}).eq('draw_date',ds);
   toast('Winners saved!');renderDraw();loadHomeSun();
+}
+
+async function addPlayerToDraw(dateStr){
+  const name=document.getElementById('manual-player')?.value.trim();
+  const groupIdx=document.getElementById('manual-group')?.value;
+  if(!name){toast('Enter a member name',true);return;}
+  const mem=AM.find(m=>m.name.toLowerCase().includes(name.toLowerCase()));
+  const hcp=mem?.handicap||18;
+  const playerName=mem?.name||name;
+  const{data:draw}=await db.from('sunday_draws').select('*').eq('draw_date',dateStr).single();
+  if(!draw){toast('Draw not found',true);return;}
+  const groups=JSON.parse(JSON.stringify(draw.groups));
+  const newP={name:playerName,handicap:hcp,id:mem?.id||null};
+  if(groupIdx==='new'){groups.push([newP]);}
+  else{groups[parseInt(groupIdx)].push(newP);}
+  await db.from('sunday_draws').update({groups,player_count:(draw.player_count||0)+1}).eq('draw_date',dateStr);
+  await db.from('draw_signups').insert({draw_date:dateStr,member_id:null,member_name:playerName,handicap:hcp}).catch(()=>{});
+  toast(`${playerName} added to draw! ⛳`);
+  renderDraw();
 }
 async function signUp(){
   if(!isLoggedIn){toast('Must be an approved member',true);return;}
@@ -1161,7 +1255,7 @@ async function clearDraw(){
   await db.from('draw_signups').delete().eq('draw_date',d);
   toast('Draw cleared');renderDraw();
 }
- 
+
 // ═══════════════════════════════════════
 // MEMBERS
 // ═══════════════════════════════════════
@@ -1192,7 +1286,7 @@ async function loadMembers(){
     </div>`;
   }).join('');
 }
- 
+
 // ═══════════════════════════════════════
 // ATTENDANCE PAGE
 // ═══════════════════════════════════════
@@ -1223,7 +1317,7 @@ async function loadAttPage(){
         ${isLoggedIn?`<button class="btn btn-sm" onclick="manualAtt('${d}')">Edit</button>`:''}
       </div>`;}).join('');
 }
- 
+
 async function manualAtt(ds){
   if(!AM.length)await loadMembers();
   const name=prompt(`Add/remove attendance for ${ds}\nEnter member name:`);if(!name)return;
@@ -1244,50 +1338,175 @@ async function manualAtt(ds){
   }
   loadAttPage();
 }
- 
+
 // ═══════════════════════════════════════
 // SCORE ENTRY
 // ═══════════════════════════════════════
-function renderScores(){
+async function renderScores(){
   const el=document.getElementById('scores-con');
   if(!isLoggedIn){el.innerHTML=`<div class="prot"><h3>Enter Edit Mode</h3><p>Tap the button below and enter the society password to submit scores.</p><button class="btn btn-p" onclick="openModal()">🔐 Enter Edit Mode</button></div>`;return;}
-  
   const ds=getSun();
-  el.innerHTML=`<div style="max-width:780px;margin:0 auto">
-    <div class="draw-step"><div class="draw-step-title">Round Details</div>
+  // Load draw for today and all members
+  let draw=null;
+  try{const r=await db.from('sunday_draws').select('*').eq('draw_date',ds).single();draw=r.data;}catch(e){}
+  if(!AM.length){const{data}=await db.from('members').select('id,name,handicap').eq('approved',true).order('name');AM=data||[];}
+
+  let groupSelectHtml='';
+  if(draw?.groups){
+    groupSelectHtml=`<div class="draw-step">
+      <div class="draw-step-title">📋 Select Your Group from Today's Draw</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:.9rem;color:rgba(249,244,232,.5);font-style:italic;margin-bottom:1rem">Pick your group and all members auto-fill. Then enter everyone's scores.</p>
+      <div class="ggrid" id="group-select-grid">
+        ${draw.groups.map((g,i)=>`
+          <div class="gcard" style="cursor:pointer;transition:all .2s;border:1px solid rgba(201,168,76,.17)" onclick="selectGroup(${i})" id="gsel-${i}">
+            <div class="ghead">Group ${i+1} <span class="bdg">${g.length}-Ball</span></div>
+            ${g.map(p=>`<div class="gplayer"><span class="gplayer-n">${p.name}</span><span class="gplayer-h">Hcp ${p.handicap?.toFixed(1)||'?'}</span></div>`).join('')}
+          </div>`).join('')}
+      </div>
+      <p style="font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.1em;color:rgba(249,244,232,.35);text-transform:uppercase;margin-top:.8rem">Or enter manually below</p>
+    </div>`;
+  }
+
+  el.innerHTML=`<div style="max-width:860px;margin:0 auto">
+    <div class="draw-step" style="background:rgba(201,168,76,.06);border-color:rgba(201,168,76,.3)">
+      <div class="draw-step-title">📅 Round Date</div>
       <div class="fr">
         <div class="fg"><label class="fl">Date</label><input class="fi" type="date" id="sc-date" value="${ds}"/></div>
-        <div class="fg"><label class="fl">Society Handicap</label><input class="fi" type="number" id="sc-hcp" value="${CM.handicap}" step="0.1" readonly style="opacity:.6"/></div>
+        <div class="fg"><label class="fl">CTP Hole</label><input class="fi" type="text" id="sc-ctp" placeholder="e.g. Hole 6" readonly style="opacity:.6" value="${draw?'Hole '+draw.ctp_hole:'No draw yet'}"/></div>
       </div>
     </div>
-    <div class="draw-step"><div class="draw-step-title">Your 4-Ball (select up to 3 partners)</div>
-      <div class="pgrid" id="fb-sel"><div class="empty">Loading…</div></div>
+    ${groupSelectHtml}
+    <div class="draw-step">
+      <div class="draw-step-title">👥 Players in Your Group</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:.9rem;color:rgba(249,244,232,.5);font-style:italic;margin-bottom:1rem">Add all players — enter gross scores for each hole for every player</p>
+      <div id="players-list"></div>
+      <button class="btn btn-s" style="margin-top:.8rem;font-size:.55rem;padding:.6rem 1.2rem" onclick="addPlayerRow()">➕ Add Player</button>
     </div>
-    <div class="draw-step"><div class="draw-step-title">Scorecard — ${fmt(ds)}</div>
-      <p style="font-family:'Cormorant Garamond',serif;font-size:.9rem;color:rgba(249,244,232,.4);font-style:italic;margin-bottom:.9rem">Enter gross scores · Stableford points calculated live</p>
+    <div class="draw-step" id="sc-section" style="display:none">
+      <div class="draw-step-title" id="sc-title">📝 Scorecard</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:.9rem;color:rgba(249,244,232,.5);font-style:italic;margin-bottom:.9rem">Enter gross scores · Stableford calculated live per player</p>
       <div id="sc-wrap"></div>
-      <div id="sf-prev" style="display:none"></div>
+      <div id="sf-prev"></div>
     </div>
-    <button class="btn btn-p btn-fw" onclick="submitScores()" style="margin-top:.4rem">Submit Scores ⛳</button>
+    <button class="btn btn-p btn-fw" onclick="submitGroupScores()" style="margin-top:.5rem">Submit All Scores ⛳</button>
   </div>`;
-  buildSC();loadFB();
+
+  // Initialise with one empty player row
+  window.groupPlayers=[];
+  addPlayerRow();
 }
- 
-function buildSC(){
-  function half(holes){
-    return`<div class="scow"><div class="scg" style="grid-template-columns:62px repeat(9,1fr);min-width:430px">
-      <div class="sch">Hole</div>${holes.map(i=>`<div class="sch">${i+1}</div>`).join('')}
-      <div class="scl">Par</div>${holes.map(i=>`<div class="sci">${COURSE.par[i]}</div>`).join('')}
-      <div class="scl">SI</div>${holes.map(i=>`<div class="sci">${COURSE.idx[i]}</div>`).join('')}
-      <div class="scl">Score</div>${holes.map(i=>`<input class="sco" type="number" min="1" max="15" id="h${i}" placeholder="—" inputmode="numeric" oninput="updSF()"/>`).join('')}
-    </div></div>`;
+
+// Store current group players globally
+window.groupPlayers=[];
+
+function selectGroup(idx){
+  // Highlight selected group
+  document.querySelectorAll('[id^=gsel-]').forEach(el=>{el.style.borderColor='rgba(201,168,76,.17)';el.style.background='rgba(201,168,76,.05)';});
+  const sel=document.getElementById('gsel-'+idx);
+  if(sel){sel.style.borderColor='var(--gold)';sel.style.background='rgba(201,168,76,.12)';}
+  // Get draw data
+  const ds=getSun();
+  db.from('sunday_draws').select('*').eq('draw_date',ds).single().then(({data:draw})=>{
+    if(!draw?.groups?.[idx])return;
+    const group=draw.groups[idx];
+    window.groupPlayers=group.map(p=>({name:p.name,handicap:p.handicap||18,id:p.id}));
+    renderPlayerRows();
+  });
+  toast(`Group ${idx+1} selected! Enter scores below ⛳`);
+}
+
+function addPlayerRow(){
+  // Find member details if name matches
+  window.groupPlayers=window.groupPlayers||[];
+  window.groupPlayers.push({name:'',handicap:18});
+  renderPlayerRows();
+}
+
+function removePlayerRow(idx){
+  window.groupPlayers.splice(idx,1);
+  renderPlayerRows();
+}
+
+function renderPlayerRows(){
+  const el=document.getElementById('players-list');
+  if(!el)return;
+  const memberOptions=AM.map(m=>`<option value="${m.name}" data-hcp="${m.handicap||18}">${m.name} (Hcp ${m.handicap?.toFixed(1)||'?'})</option>`).join('');
+  el.innerHTML=window.groupPlayers.map((p,i)=>`
+    <div class="player-row" id="pr-${i}" style="display:flex;align-items:center;gap:.7rem;padding:.6rem 0;border-bottom:1px solid rgba(201,168,76,.07)">
+      <div style="flex:2;min-width:0">
+        <label class="fl" style="margin-bottom:.3rem">Player ${i+1}</label>
+        <input class="fi" list="member-list-${i}" id="pname-${i}" placeholder="Type name…" value="${p.name}" 
+          oninput="onPlayerNameChange(${i},this.value)" style="padding:.55rem .7rem"/>
+        <datalist id="member-list-${i}">${memberOptions}</datalist>
+      </div>
+      <div style="width:90px;flex-shrink:0">
+        <label class="fl" style="margin-bottom:.3rem">Hcp</label>
+        <input class="fi" type="number" id="phcp-${i}" value="${p.handicap}" step="0.1" min="0" max="54" 
+          oninput="window.groupPlayers[${i}].handicap=parseFloat(this.value)||18;rebuildSC()" style="padding:.55rem .5rem"/>
+      </div>
+      ${window.groupPlayers.length>1?`<button class="btn btn-d" style="margin-top:1.1rem;padding:.35rem .6rem" onclick="removePlayerRow(${i})">✕</button>`:''}
+    </div>`).join('');
+  // Show datalist options
+  document.querySelectorAll('[id^=member-list-]').forEach(dl=>{
+    if(!dl.children.length){dl.innerHTML=memberOptions;}
+  });
+  rebuildSC();
+}
+
+function onPlayerNameChange(idx,val){
+  window.groupPlayers[idx].name=val;
+  // Auto-fill handicap from members list
+  const m=AM.find(m=>m.name.toLowerCase()===val.toLowerCase());
+  if(m){
+    window.groupPlayers[idx].handicap=m.handicap||18;
+    const hcpEl=document.getElementById('phcp-'+idx);
+    if(hcpEl)hcpEl.value=m.handicap?.toFixed(1)||'18';
+    rebuildSC();
   }
-  document.getElementById('sc-wrap').innerHTML=
-    half([0,1,2,3,4,5,6,7,8])+
-    `<div class="divider" style="margin:.6rem 0"></div>`+
-    half([9,10,11,12,13,14,15,16,17]);
 }
- 
+
+function rebuildSC(){
+  const players=window.groupPlayers.filter(p=>p.name);
+  const sec=document.getElementById('sc-section');
+  if(!sec)return;
+  if(!players.length){sec.style.display='none';return;}
+  sec.style.display='block';
+  const title=document.getElementById('sc-title');
+  if(title)title.textContent=`📝 Scorecard — ${players.map(p=>p.name.split(' ')[0]).join(', ')}`;
+  buildGroupSC(players);
+}
+
+function buildGroupSC(players){
+  // Build scorecard with a row per player per 9 holes
+  function halfGrid(holes,players){
+    let h=`<div class="scow"><div class="scg" style="grid-template-columns:90px repeat(9,1fr);min-width:460px">`;
+    // Header row
+    h+=`<div class="sch">Hole</div>${holes.map(i=>`<div class="sch">${i+1}</div>`).join('')}`;
+    h+=`<div class="scl" style="font-size:.42rem">Par</div>${holes.map(i=>`<div class="sci">${COURSE.par[i]}</div>`).join('')}`;
+    h+=`<div class="scl" style="font-size:.42rem">S/I</div>${holes.map(i=>`<div class="sci">${COURSE.idx[i]}</div>`).join('')}`;
+    // One row per player
+    players.forEach((p,pi)=>{
+      const firstName=p.name.split(' ')[0]||'Player '+(pi+1);
+      h+=`<div class="scl" style="font-size:.46rem;color:var(--gold)">${firstName}</div>`;
+      h+=holes.map(i=>`<input class="sco" type="number" min="1" max="15" 
+        id="sc-${pi}-${i}" placeholder="—" inputmode="numeric" 
+        oninput="updGroupSF()" 
+        style="border-color:rgba(201,168,76,${pi===0?'.35':'.15'})"/>`).join('');
+    });
+    h+=`</div></div>`;
+    return h;
+  }
+  const wrap=document.getElementById('sc-wrap');
+  if(!wrap)return;
+  wrap.innerHTML=
+    halfGrid([0,1,2,3,4,5,6,7,8],players)+
+    `<div class="divider" style="margin:.6rem 0"></div>`+
+    halfGrid([9,10,11,12,13,14,15,16,17],players);
+  updGroupSF();
+}
+
+function buildSC(){buildGroupSC(window.groupPlayers?.filter(p=>p.name)||[{name:'Me',handicap:18}]);}
+
 function calcSF(scores,hcp){
   let t=0,f=0,b=0;
   const s=Math.round(hcp),ex=s%18,base=Math.floor(s/18);
@@ -1298,76 +1517,84 @@ function calcSF(scores,hcp){
   });
   return{total:t,front:f,back:b};
 }
- 
-function updSF(){
-  const hcp=parseFloat(document.getElementById('sc-hcp').value);
-  const scores=Array.from({length:18},(_,i)=>document.getElementById('h'+i)?.value||'');
-  const filled=scores.filter(s=>s!=='');
+
+function updSF(){updGroupSF();}
+function updGroupSF(){
+  const players=window.groupPlayers?.filter(p=>p.name)||[];
+  if(!players.length)return;
   const pv=document.getElementById('sf-prev');
-  if(!filled.length){pv.style.display='none';return;}
-  const{total,front,back}=calcSF(scores,hcp);
-  const gross=scores.reduce((a,s)=>a+(parseInt(s)||0),0);
-  pv.style.display='block';pv.className='sf-box';
-  pv.innerHTML=`
-    <div class="sf-row"><span class="sf-l">Holes played</span><span class="sf-v">${filled.length}/18</span></div>
-    <div class="sf-row"><span class="sf-l">Gross total</span><span class="sf-v">${gross}</span></div>
-    <div class="sf-row"><span class="sf-l">Front 9</span><span class="sf-v">${front} pts</span></div>
-    <div class="sf-row"><span class="sf-l">Back 9</span><span class="sf-v">${back} pts</span></div>
-    <div class="sf-row"><span class="sf-l">Total Stableford</span><span class="sf-v">${total} pts</span></div>`;
+  if(!pv)return;
+  let html='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.7rem;margin-top:.8rem">';
+  players.forEach((p,pi)=>{
+    const scores=Array.from({length:18},(_,i)=>document.getElementById(`sc-${pi}-${i}`)?.value||'');
+    const filled=scores.filter(s=>s!=='');
+    if(!filled.length){html+=`<div class="sf-box" style="opacity:.4"><div class="sf-row"><span class="sf-l">${p.name.split(' ')[0]}</span><span class="sf-v">No scores</span></div></div>`;return;}
+    const{total,front,back}=calcSF(scores,p.handicap||18);
+    const gross=scores.reduce((a,s)=>a+(parseInt(s)||0),0);
+    html+=`<div class="sf-box">
+      <div class="sf-row"><span class="sf-l" style="color:var(--gold);font-weight:600">${p.name.split(' ')[0]}</span><span class="sf-v" style="color:var(--gold);font-size:.7rem">Hcp ${parseFloat(p.handicap||18).toFixed(1)}</span></div>
+      <div class="sf-row"><span class="sf-l">Gross</span><span class="sf-v">${gross}</span></div>
+      <div class="sf-row"><span class="sf-l">Front 9</span><span class="sf-v">${front} pts</span></div>
+      <div class="sf-row"><span class="sf-l">Back 9</span><span class="sf-v">${back} pts</span></div>
+      <div class="sf-row"><span class="sf-l">Total</span><span class="sf-v">${total} pts</span></div>
+    </div>`;
+  });
+  html+='</div>';
+  pv.innerHTML=html;
 }
- 
+
 async function loadFB(){
   if(!AM.length){const{data}=await db.from('members').select('id,name,handicap').eq('approved',true).order('name');AM=data||[];}
-  const others=AM.filter(m=>m.id!==CU?.id);
-  const sel=document.getElementById('fb-sel');if(!sel)return;
-  sel.innerHTML=others.map(m=>`<label class="pchip" id="fb-${m.id}">
-    <input type="checkbox" value="${m.id}" name="fb" onchange="checkFb(this)"/>
-    <span class="pcn">${m.name}</span>
-    <span class="pch">${m.handicap?.toFixed(1)||'?'}</span>
-  </label>`).join('');
 }
-function checkFb(cb){
-  if(document.querySelectorAll('input[name=fb]:checked').length>3){cb.checked=false;toast('Max 3 partners (4-ball total)',true);return;}
-  document.querySelectorAll('.pchip').forEach(el=>el.classList.toggle('sel',el.querySelector('input')?.checked));
-}
- 
-async function submitScores(){
-  const date=document.getElementById('sc-date').value,hcp=parseFloat(document.getElementById('sc-hcp').value);
-  const scores=Array.from({length:18},(_,i)=>{const v=document.getElementById('h'+i)?.value;return v?parseInt(v):null;});
-  if(scores.filter(s=>s!==null).length<18&&!confirm(`Only ${scores.filter(s=>s!==null).length}/18 holes entered. Submit anyway?`))return;
-  const{total,front,back}=calcSF(scores.map(s=>s||''),hcp);
-  const gross=scores.reduce((a,s)=>a+(s||0),0);
-  const fb=Array.from(document.querySelectorAll('input[name=fb]:checked')).map(c=>(AM.find(m=>m.id===c.value)?.name)||'');
-  const{error}=await db.from('rounds').insert({
-    member_id:null,member_name:currentName,round_date:date,
-    handicap_used:hcp,scores,stableford_total:total,
-    stableford_front:front,stableford_back:back,gross_total:gross,
-    fourball:[CM.name,...fb]
-  });
-  if(error){toast('Error saving: '+error.message,true);return;}
-  // Attendance tracked via rounds — update rounds_played
-  // attendance tracked via rounds table automatically
-  CM.rounds_played=(CM.rounds_played||0)+1;
-  toast('Scores submitted! 🏌️');
+function checkFb(cb){}
+
+async function submitGroupScores(){
+  const date=document.getElementById('sc-date')?.value||getSun();
+  const players=(window.groupPlayers||[]).filter(p=>p.name.trim());
+  if(!players.length){toast('Add at least one player first',true);return;}
+  const allNames=players.map(p=>p.name);
+  let submitted=0;
+  for(let pi=0;pi<players.length;pi++){
+    const p=players[pi];
+    const scores=Array.from({length:18},(_,i)=>{const v=document.getElementById(`sc-${pi}-${i}`)?.value;return v?parseInt(v):null;});
+    const filled=scores.filter(s=>s!==null);
+    if(!filled.length)continue;
+    if(filled.length<18&&!confirm(`Only ${filled.length}/18 holes for ${p.name}. Submit anyway?`))continue;
+    const{total,front,back}=calcSF(scores.map(s=>s||''),p.handicap||18);
+    const gross=scores.reduce((a,s)=>a+(s||0),0);
+    const{error}=await db.from('rounds').insert({
+      member_id:null,member_name:p.name,round_date:date,
+      handicap_used:p.handicap||18,scores,
+      stableford_total:total,stableford_front:front,stableford_back:back,
+      gross_total:gross,fourball:allNames
+    });
+    if(error){toast('Error saving '+p.name+': '+error.message,true);continue;}
+    const mem=AM.find(m=>m.name.toLowerCase()===p.name.toLowerCase());
+    if(mem)await db.from('members').update({rounds_played:(mem.rounds_played||0)+1}).eq('id',mem.id);
+    submitted++;
+  }
+  if(!submitted){toast('No scores to submit',true);return;}
+  toast(`✅ ${submitted} player${submitted!==1?'s':''} submitted! 🏌️`);
   await processRoundResults(date);
-  go('home');
+  go('weekly');
 }
- 
+async function submitScores(){return submitGroupScores();}
+
 // ═══════════════════════════════════════
 // PROCESS RESULTS — positions, money, handicap cuts, merit
 // ═══════════════════════════════════════
 async function processRoundResults(dateStr){
   const{data}=await db.from('rounds').select('*').eq('round_date',dateStr).eq('admin_override',null);
   if(!data||data.length<2)return;
- 
+
   // Check if already processed
   const{data:existing}=await db.from('round_results').select('id').eq('round_date',dateStr).single().catch(()=>({data:null}));
   if(existing)return;
- 
+
   const ranked=rankPlayers(data);
   const playerCount=ranked.length;
   const pot=calcPot(playerCount);
- 
+
   // Store results for each position
   const results=[];
   for(const r of ranked){
@@ -1377,19 +1604,19 @@ async function processRoundResults(dateStr){
     const winnings=calcWinnings(pot,pos);
     results.push({member_id:r.member_id,member_name:r.member_name,pos,stableford_total:r.stableford_total,stableford_back:r.stableford_back||0,pos_points_earned:pts,merit_earned:merit,winnings});
   }
- 
+
   // Save round results table
   await db.from('round_results').insert(results.map(r=>({...r,round_date:dateStr,player_count:playerCount,pot_total:pot})));
- 
+
   // Update each member's running totals + handicap cut logic
   for(const r of results){
     const{data:mem}=await db.from('members').select('*').eq('id',r.member_id).single();
     if(!mem)continue;
- 
+
     const newPosPoints=(mem.pos_points||0)+r.pos_points_earned;
     const newMerit=(mem.merit_points||0)+r.merit_earned;
     const newWinnings=(mem.total_winnings||0)+r.winnings;
- 
+
     // Handicap cut: every 7 accumulated pos points = 1 shot cut
     let currentAccum=(mem.pos_points_accum||0)+r.pos_points_earned;
     let cuts=mem.cuts||0;
@@ -1399,7 +1626,7 @@ async function processRoundResults(dateStr){
       cuts++;
       newHcp=Math.max(0,newHcp-1);
     }
- 
+
     await db.from('members').update({
       pos_points:newPosPoints,
       pos_points_accum:currentAccum,
@@ -1408,13 +1635,13 @@ async function processRoundResults(dateStr){
       cuts,
       handicap:newHcp
     }).eq('id',r.member_id);
- 
+
     if(r.pos===1&&newHcp<parseFloat(mem.handicap)){
       toast(`🏆 ${r.member_name} wins! Handicap cut to ${newHcp.toFixed(1)}`);
     }
   }
 }
- 
+
 // ═══════════════════════════════════════
 // WEEKLY RESULTS PAGE
 // ═══════════════════════════════════════
@@ -1423,12 +1650,12 @@ async function loadWeekly(){
   const{data:results}=await db.from('round_results').select('*').order('round_date',{ascending:false});
   const{data:draws}=await db.from('sunday_draws').select('draw_date,ctp_hole,ctp_winner,ld_hole,ld_winner');
   if(!results?.length){el.innerHTML='<div class="empty">No weekly results yet</div>';return;}
- 
+
   // Group by date
   const byDate={};
   results.forEach(r=>{if(!byDate[r.round_date])byDate[r.round_date]=[];byDate[r.round_date].push(r);});
   const drawMap={};(draws||[]).forEach(d=>drawMap[d.draw_date]=d);
- 
+
   el.innerHTML=Object.entries(byDate).map(([date,rows])=>{
     const sorted=rows.sort((a,b)=>a.pos-b.pos);
     const pot=sorted[0]?.pot_total||0;
@@ -1465,7 +1692,7 @@ async function loadWeekly(){
     </div>`;
   }).join('');
 }
- 
+
 async function reprocessRound(dateStr){
   if(!confirm(`Reprocess results for ${dateStr}? This will recalculate positions, money and points.`))return;
   await db.from('round_results').delete().eq('round_date',dateStr);
@@ -1479,7 +1706,7 @@ async function deleteRound(dateStr){
   await db.from('round_winners').delete().eq('round_date',dateStr);
   toast('Round deleted');loadWeekly();
 }
- 
+
 // ═══════════════════════════════════════
 // RESULTS ARCHIVE
 // ═══════════════════════════════════════
@@ -1520,7 +1747,7 @@ async function loadResults(){
     </div>`;
   }).join('');
 }
- 
+
 // ═══════════════════════════════════════
 // FINES
 // ═══════════════════════════════════════
@@ -1571,7 +1798,7 @@ async function markPaid(id,name,amt){
   if(m)await db.from('members').update({fines_paid:(m.fines_paid||0)+amt}).eq('name',name);
   toast(`Fine paid for ${name}`);loadFines();
 }
- 
+
 // ═══════════════════════════════════════
 // PHOTOS
 // ═══════════════════════════════════════
@@ -1625,7 +1852,7 @@ async function uploadPhoto(input){
   setTimeout(()=>{if(status)status.innerHTML='';},3000);
   loadPhotoGallery(document.querySelector('.ptab.act')?.textContent||'all');
 }
- 
+
 // ═══════════════════════════════════════
 // NOTICE BOARD
 // ═══════════════════════════════════════
@@ -1650,7 +1877,7 @@ async function postNotice(){
   await db.from('notices').insert({title,body,author_id:null,author_name:currentName});
   toast('Notice posted!');loadNotices();
 }
- 
+
 // ═══════════════════════════════════════
 // ADMIN
 // ═══════════════════════════════════════
@@ -1673,7 +1900,7 @@ function renderAdmin(){
     </div>
     <button class="btn btn-p" style="max-width:220px" onclick="addMember()">➕ Add Member</button>
   </div>
- 
+
   <div class="agrd">
     <div class="card"><div class="ct">Season Management</div>
       <div class="aa"><span class="aa-l">AGM Reset — restore all club handicaps, clear season stats</span><button class="btn btn-d" onclick="agmReset()">AGM Reset</button></div>
@@ -1682,7 +1909,7 @@ function renderAdmin(){
     </div>
     <div class="card"><div class="ct">Honours Board</div><div id="honours-admin"></div></div>
   </div>
- 
+
   <!-- EDIT MEMBER FORM (hidden until edit clicked) -->
   <div id="edit-member-form" style="display:none" class="card" style="margin-bottom:1.4rem;border-top:3px solid var(--goldl)">
     <div class="ct">✏️ Edit Member — <span id="edit-member-name-title"></span></div>
@@ -1700,14 +1927,14 @@ function renderAdmin(){
       <button class="btn btn-s" style="max-width:140px" onclick="document.getElementById('edit-member-form').style.display='none'">Cancel</button>
     </div>
   </div>
- 
+
   <div class="card" style="margin-bottom:1.2rem">
     <div class="ct">All Members</div>
     <div id="all-members"><div class="empty">Loading…</div></div>
   </div>`;
   loadAllMembersAdmin();loadHonoursAdmin();
 }
- 
+
 async function addMember(){
   const name=document.getElementById('new-name').value.trim();
   const hcp=parseFloat(document.getElementById('new-hcp').value);
@@ -1730,7 +1957,7 @@ async function addMember(){
   loadAllMembersAdmin();
   loadMembers();
 }
- 
+
 function openEditMember(id,name,hcp,chcp,photo){
   document.getElementById('edit-member-form').style.display='block';
   document.getElementById('edit-member-id').value=id;
@@ -1741,7 +1968,7 @@ function openEditMember(id,name,hcp,chcp,photo){
   document.getElementById('edit-photo').value=photo||'';
   document.getElementById('edit-member-form').scrollIntoView({behavior:'smooth'});
 }
- 
+
 async function saveMemberEdit(){
   const id=document.getElementById('edit-member-id').value;
   const name=document.getElementById('edit-name').value.trim();
@@ -1810,7 +2037,7 @@ async function manualWinner(){
 }
 async function loadHonoursAdmin(){
   let d=[];try{const r=await db.from('honours').select('*');d=r.data||[];}catch(e){}
-  const keys=['captain','president','champion','newcomer'],labels=['Captain 2025','President 2025','Season Champion 2024','Best Newcomer 2024'];
+  const keys=['captain','president','champion','newcomer'],labels=['Captain 2026','President 2026','Season Champion 2025','Best Newcomer 2025'];
   const vals={};d.forEach(h=>vals[h.key]=h.value);
   document.getElementById('honours-admin').innerHTML=keys.map((k,i)=>`
     <div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.6rem">
@@ -1823,7 +2050,7 @@ async function saveHonour(key){
   await db.from('honours').upsert({key,value:v});
   toast('Honours updated!');loadHonours();
 }
- 
+
 // ═══════════════════════════════════════
 // SCROLL REVEAL + NAV SCROLL
 // ═══════════════════════════════════════
@@ -1832,8 +2059,8 @@ document.querySelectorAll('.rev').forEach(el=>{
 });
 const topNav=document.querySelector('.tnav');
 window.addEventListener('scroll',()=>{topNav.style.background=window.scrollY>50?'rgba(2,7,4,.99)':'rgba(4,10,6,.97)';},{passive:true});
- 
- 
+
+
 // ── SEARCH ──
 function openSearch(){
   document.getElementById('search-overlay').classList.add('open');
@@ -1848,7 +2075,7 @@ async function doSearch(q){
   const el=document.getElementById('search-results');
   q=q.trim().toLowerCase();
   if(!q||q.length<2){el.innerHTML='<div class="search-result-empty">Start typing to search…</div>';return;}
- 
+
   const pages=[
     {name:'Home',icon:'🏠',page:'home',desc:'Main page & leaderboard'},
     {name:'Sunday Draw',icon:'🎲',page:'draw',desc:'Sign up & view groups'},
@@ -1862,31 +2089,31 @@ async function doSearch(q){
     {name:'Notice Board',icon:'📋',page:'notice',desc:'Society announcements'},
     {name:'Admin',icon:'⚙️',page:'admin',desc:'Manage members & settings'},
   ];
- 
+
   let results=[];
- 
+
   // Match pages
   pages.forEach(p=>{
     if(p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q))
       results.push({type:'page',...p});
   });
- 
+
   // Match members from DB or demo
   const{data:mem}=await db.from('members').select('name,handicap,rounds_played').eq('approved',true);
   const members=mem?.length?mem:DEMO.members;
   members.filter(m=>m.name.toLowerCase().includes(q)).forEach(m=>{
     results.push({type:'member',name:m.name,icon:'👤',desc:`Hcp ${m.handicap?.toFixed(1)||'?'} · ${m.rounds_played||0} rounds`,page:'members'});
   });
- 
+
   if(!results.length){el.innerHTML='<div class="search-result-empty">No results found for "'+q+'"</div>';return;}
- 
+
   el.innerHTML=results.slice(0,8).map(r=>`
     <div class="search-result-item" onclick="go('${r.page}');closeSearch()">
       <span class="search-result-icon">${r.icon}</span>
       <div><div class="search-result-name">${r.name}</div><div class="search-result-sub">${r.desc}</div></div>
     </div>`).join('');
 }
- 
+
 // INIT
 updateNavAuth();
 loadHomeData();
